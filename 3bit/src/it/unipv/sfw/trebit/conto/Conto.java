@@ -4,9 +4,9 @@ public class Conto {
 
 	private double saldo;
 
-	public Conto() {
+	public Conto(double s) {
 
-		this.saldo = 0;
+		this.saldo = s;
 
 	}
 
