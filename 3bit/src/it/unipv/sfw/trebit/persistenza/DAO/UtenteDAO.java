@@ -33,12 +33,10 @@ public class UtenteDAO {
 		
 		public void registrazione(Utente u) throws SQLException{
 			conn = DriverManager.getConnection("jdbc:mysql://34.154.119.106:3306/PROVA?user=root&password=e");
-			String query = "INSERT INTO UTENTI VALUES(?,?,?)";
+			String query = "INSERT INTO UTENTI VALUES(?,?)";
 			PreparedStatement st1 = conn.prepareStatement(query);
-			st1.setInt(1, 1);
-			st1.setString(2, u.getNome());
-			st1.setString(3, u.getPassword());
-			st1.setInt(3, 1);
+			st1.setString(1, u.getNome());
+			st1.setString(2, u.getPassword());
 			st1.executeUpdate();
 			conn.close();
 		}
