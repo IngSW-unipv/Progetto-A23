@@ -10,9 +10,9 @@ public class Conto {
 
 	}
 
-	public boolean deposita(double cifra) {
+	public boolean deposita(double amount) {
 
-		if(cifra < 0) {
+		if(amount < 0) {
 
 			return false;
 
@@ -20,7 +20,7 @@ public class Conto {
 
 		else {
 
-			this.saldo = this.saldo + cifra;
+			this.saldo = this.saldo + amount;
 
 			return true;
 
@@ -28,9 +28,9 @@ public class Conto {
 
 	}
 
-	public boolean preleva(double cifra) throws Exception {
+	public boolean preleva(double amount) {
 
-		if(this.saldo == 0 || cifra < 0 || cifra > this.saldo) {
+		if(this.saldo == 0 || amount < 0 || amount > this.saldo) {
 
 			return false;
 
@@ -38,7 +38,7 @@ public class Conto {
 
 		else {
 
-			this.saldo = this.saldo - cifra;
+			this.saldo = this.saldo - amount;
 
 			return true;
 
