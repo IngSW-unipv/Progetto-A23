@@ -5,7 +5,7 @@ import javax.swing.*;
 
 public class LoginView extends JFrame {
 
-	private JLabel label;
+	private JLabel benvenuto;
 	private JLabel user;
 	private JLabel psw;
 	private JTextField username;
@@ -24,8 +24,8 @@ public class LoginView extends JFrame {
 		JPanel northPanel = new JPanel();
 		add(northPanel, BorderLayout.NORTH);
 		
-		label = new JLabel("Benvenuto");
-		northPanel.add(label);
+		benvenuto = new JLabel("Benvenuto");
+		northPanel.add(benvenuto);
 		
 		
 		
@@ -58,11 +58,30 @@ public class LoginView extends JFrame {
 		add(southPanel, BorderLayout.SOUTH);
 		
 		signIn = new JButton("Sign In");
+		signIn.setActionCommand("signIn");
 		southPanel.add(signIn);
 		
 		signUp = new JButton("Sign Up");
+		signUp.setActionCommand("signUp");
 		southPanel.add(signUp);
 		
+	}
+	
+	public JButton getButtonSignIn() {
+		return signIn;
+	}
+	
+	public JButton getButtonSignUp() {
+		return signUp;
+	}
+	
+	public String getStringUsername() {
+		return username.getText();
+	}
+	
+	@SuppressWarnings("deprecation")
+	public String getStringPassword() {
+		return password.getText();
 	}
 
 }
