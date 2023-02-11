@@ -1,6 +1,9 @@
 package it.unipv.sfw.trebit.game;
 
 public class Game {
+	private double multiplier;
+	private int chosenGame;
+	private int win;
 
 	public Game() {
 	multiplier=1;
@@ -14,7 +17,7 @@ public class Game {
 	
 	
 	
-	
+	/*
 	public play(double bet, int chosenGame)
 	
 	multiplier=v.getMultiplier();
@@ -39,12 +42,12 @@ public class Game {
 	//forse conviene creare un metodo choseGame che abbia al suo interno solo la switch così non metto tutto insieme
 	//e l'aggiunta di un gioco non necessiterà di troppe modifiche (quantità di linee di codice)
 	
+	*/
 	
 	
 	
 	
-	
-	public play(double bet, int chosenGame) {			//metodo chiamato da Casino!!!
+	public double play(double bet, int chosenGame) {			//metodo chiamato da Casino!!!
 		
 	//forse non servono	
 	//	super();								//non sono molto convinto si faccia così
@@ -56,22 +59,24 @@ public class Game {
 		
 		win=choseGame(chosenGame);
 		
-		return win*multiplier-bet;
+		return win*multiplier*bet-bet;
 	}
 	
 	
-	public choseGame(int chosenGame) {
+	public int choseGame(int chosenGame) {
 		
-	}
 		switch(chosenGame) {
 		case 1:
-			//istanza di S (SlotMachine)
-			return S.turn();
+			//istanza di s (SlotMachine)
+			SlotMachine s=new SlotMachine();
+			return s.turn();
 			break;					//forse non serve il break dato che prima c'è un return e quindi esce a prescindere
 		case 2:
 			//istanza di W (WheelOfFortune)
-			return W.turn();
+			WheelOfFortune w=new WheelOfFortune();
+			return w.turn();
 			break;					//forse non serve il break dato che prima c'è un return e quindi esce a prescindere
+		}
 	}
 }
 
