@@ -2,19 +2,9 @@ package it.unipv.sfw.trebit.game;
 
 public class Game {
 	private double multiplier;
-	private int chosenGame;
 	private int win;
 
-	public Game() {
-	multiplier=1;
-	chosenGame=0;			//forse non serve dipende da sotto
-	win=0;					//forse non serve dipende da sotto
-	
-	
-	
-	VictoryStrategy v = new VictoryStrategy   //da capire bene come metterlo giù e se metterlo qui
-	}
-	
+		
 	
 	
 	/*
@@ -54,8 +44,8 @@ public class Game {
 	//	this.bet=bet;							//non sono molto convinto si faccia così, però serve 
 	//	this.chosenGame=chosenGame;				//non sono molto convinto si faccia così, però serve 
 	
-		VictoryStrategy v = new VictoryStrategy   //da capire bene come metterlo giù e se metterlo qui
-		multiplier=v.getMultiplier();
+		MultiplierContext m = new MultiplierContext();   //da capire bene come metterlo giù e se metterlo qui
+		multiplier=m.getMultiplier();
 		
 		win=choseGame(chosenGame, extra);
 		
