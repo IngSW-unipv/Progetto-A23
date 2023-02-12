@@ -3,8 +3,6 @@ package it.unipv.sfw.trebit.database;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-//import java.sql.Driver;
-
 
 public class DBConn{
 	
@@ -16,9 +14,9 @@ public class DBConn{
 		String password=null;
 	
 		DbDriver= "com.mysql.jdbc.Driver";
-		DbURL= "jdbc:mysql://127.0.0.1:3306/"+schema;
+		DbURL= "jdbc:mysql://34.154.119.106:3306/"+schema;
 		username="root";
-		password ="root";
+		password ="e";
 		
 		
 		if (isOpen(conn)) {
