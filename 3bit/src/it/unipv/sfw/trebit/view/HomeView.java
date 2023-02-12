@@ -26,6 +26,7 @@ public class HomeView extends JFrame {
 		
 		
 		JPanel northPanel = new JPanel();
+		northPanel.setBackground(new Color(49, 171, 24));
 		add(northPanel, BorderLayout.NORTH);
 		
 		label = new JLabel("Scegli una delle seguenti operazioni:");
@@ -36,46 +37,48 @@ public class HomeView extends JFrame {
 		JPanel eastPanel = new JPanel();
 		add(eastPanel, BorderLayout.EAST);
 		
-		saldo = new JLabel("il tuo saldo: € ");
+		saldo = new JLabel("il tuo saldo: € 00.00");
 		eastPanel.add(saldo);
 		
 		
 		
-		JPanel westPanel = new JPanel();
-		add(westPanel, BorderLayout.WEST);
-		//westPanel.setLayout(new GridLayout(2, 1));
+		JPanel southPanel = new JPanel();
+		add(southPanel, BorderLayout.SOUTH);
+		southPanel.setLayout(new GridLayout(2, 1));
 		
 		importo = new JLabel("Scegli l'importo:");
-		westPanel.add(importo);
+		southPanel.add(importo);
 		
 		amount = new JTextField();
-		westPanel.add(amount);
-		amount.setColumns(4);
+		southPanel.add(amount);
 		
 		deposita = new JButton("Deposita");
 		deposita.setActionCommand("deposita");
-		westPanel.add(deposita);
+		southPanel.add(deposita);
 		
 		preleva = new JButton("preleva");
 		preleva.setActionCommand("preleva");
-		westPanel.add(preleva);
+		southPanel.add(preleva);
 		
 		
 		
 		JPanel centerPanel = new JPanel();
 		add(centerPanel, BorderLayout.CENTER);
+		centerPanel.setLayout(new GridLayout(2, 2));
 		
-		slotMachine = new JLabel();
+		Icon image = new ImageIcon(getClass().getResource("slotGif.gif"));
+		slotMachine = new JLabel(image);
 		centerPanel.add(slotMachine);
 		
-		ruotaDellaFortuna = new JLabel();
+		Icon image2 = new ImageIcon(getClass().getResource("wheelGif.gif"));
+		ruotaDellaFortuna = new JLabel(image2);
 		centerPanel.add(ruotaDellaFortuna);
 		
-		playSlot = new JButton("sss");
+		playSlot = new JButton("Play Slot Machine");
 		playSlot.setActionCommand("playSlot");
 		centerPanel.add(playSlot);
 		
-		playRuota = new JButton("ddd");
+		playRuota = new JButton("Play Ruota della Fortuna");
 		playRuota.setActionCommand("playRuota");
 		centerPanel.add(playRuota);
 		
