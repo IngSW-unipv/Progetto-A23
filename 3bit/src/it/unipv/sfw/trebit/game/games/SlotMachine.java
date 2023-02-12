@@ -10,7 +10,8 @@ public class SlotMachine implements IGames {
 		win=0;
 	}
 	
-	public int turn() {
+	public int turn(int extraUseless) {
+		
 		// variabile inizializzata a 0 ogni volta che si inizia un turno
 		win=0;		
 		

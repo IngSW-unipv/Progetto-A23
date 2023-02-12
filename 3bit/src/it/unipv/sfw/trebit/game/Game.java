@@ -47,7 +47,7 @@ public class Game {
 	
 	
 	
-	public double play(double bet, int chosenGame) {			//metodo chiamato da Casino!!!
+	public double play(double bet, int chosenGame, int extra) {			//metodo chiamato da Casino!!!
 		
 	//forse non servono	
 	//	super();								//non sono molto convinto si faccia così
@@ -57,24 +57,24 @@ public class Game {
 		VictoryStrategy v = new VictoryStrategy   //da capire bene come metterlo giù e se metterlo qui
 		multiplier=v.getMultiplier();
 		
-		win=choseGame(chosenGame);
+		win=choseGame(chosenGame, extra);
 		
 		return win*multiplier*bet-bet;
 	}
 	
 	
-	public int choseGame(int chosenGame) {
+	public int choseGame(int chosenGame, int e) {
 		
 		switch(chosenGame) {
 		case 1:
 			//istanza di s (SlotMachine)
 			SlotMachine s=new SlotMachine();
-			return s.turn();
+			return s.turn(e);
 			break;					//forse non serve il break dato che prima c'è un return e quindi esce a prescindere
 		case 2:
 			//istanza di W (WheelOfFortune)
 			WheelOfFortune w=new WheelOfFortune();
-			return w.turn();
+			return w.turn(e);
 			break;					//forse non serve il break dato che prima c'è un return e quindi esce a prescindere
 		}
 	}
@@ -94,7 +94,8 @@ public class Game {
 //devi togliere tutti i commenti prima di dire che è giusto
 
 //cose da fare:
-//1) due giochi con interfaccia
+//1) due giochi con interfaccia				FATTI 		(mi da ancora errore l'istanza .....)
+//!!!!!!!!									MANCA IL METODO CHE RITORNA AL CONTROLLER LO SPOSTAMENTO DEI SIMBOLI
 //2) moltiplicatore con strategy
 
 
