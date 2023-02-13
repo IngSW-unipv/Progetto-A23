@@ -20,22 +20,25 @@ public class UtenteDAO {
 			conn = DBConn.startConnection(conn,schema);
 			PreparedStatement st1;
 			ResultSet result;
-			String query = "SELECT pw FROM UTENTI WHERE nome="+ "'" + u.getNome() + "'" + ";";
+			String query = "SELECT pw from UTENTI where nome= ?;";
 			st1 = conn.prepareStatement(query);
+			st1.setString(1, u.getNome());
 			result=st1.executeQuery();
 			boolean log = false;
-			if( result.getString("pw").equals(u.getPassword().toString())) {
+			if( result.next() && result.getString("pw").equals(u.getPassword())) {
 				log = true;
 			}	
-			conn.close();
+			DBConn.closeConnection(conn);
 			return log;
-		}
+		}	
 		
 		public void registrazione(Utente u) throws SQLException{
-			conn = DBConn.startConnection(conn, schema);
-			String query = "INSERT INTO UTENTI VALUES("+"'"+u.getNome()+"'"+",'"+u.getPassword().toString()+"');";
+			conn = DBConn.startConnection(conn,schema);
+			String query = "INSERT INTO UTENTI VALUES(?,?)";
 			PreparedStatement st1 = conn.prepareStatement(query);
+			st1.setString(1, u.getNome());
+			st1.setString(2, u.getPassword());
 			st1.executeUpdate();
-			conn.close();
+			DBConn.closeConnection(conn);
 		}
 }
