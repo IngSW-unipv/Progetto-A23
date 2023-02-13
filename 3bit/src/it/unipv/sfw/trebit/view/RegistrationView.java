@@ -36,7 +36,7 @@ public class RegistrationView extends JFrame {
 		psw = new JLabel("Password:");
 		westPanel.add(psw);
 		
-		cpsw = new JLabel("Conferma \n password:");
+		cpsw = new JLabel("Conferma password:");
 		westPanel.add(cpsw);
 		
 		
