@@ -6,34 +6,42 @@ import it.unipv.sfw.trebit.game.multiplier.MultiplierContext;
 
 public class Game {
 	private double multiplier;
-	private int win;
+	private double win;
+	double[] result= {};
+
 	
 	
-	public double play(double bet, int chosenGame, int extra) {		
+	public double[] play(double bet, int chosenGame, int extra) {	
+		double[] result= {};
 		//istanza di m (MultiplierContext)
 		MultiplierContext m = new MultiplierContext();   
 		multiplier=m.getMultiplier();
 		
-		win=choseGame(chosenGame, extra);
+		result=choseGame(chosenGame, extra);
+		win=result[0];
+		result[0]=win*multiplier*bet-bet;
 		
-		return win*multiplier*bet-bet;
+		
+		return result;
 	}
 	
 	
-	public int choseGame(int chosenGame, int e) {
+	public double[] choseGame(int chosenGame, int e) {
 		
 		switch(chosenGame) {
 		case 1:
 			//istanza di s (SlotMachine)
 			SlotMachine s=new SlotMachine();
-			return s.turn(e);
+			result=s.turn(e);
+			
 		case 2:
 			//istanza di W (WheelOfFortune)
 			WheelOfFortune w=new WheelOfFortune();
-			return w.turn(e);
+			result=w.turn(e);
+			
 		}
 		
-		return 0;
+		return result;
 	}
 }
 
