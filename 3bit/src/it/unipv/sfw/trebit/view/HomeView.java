@@ -70,7 +70,7 @@ public class HomeView extends JFrame {
 		slotMachine = new JLabel(image);
 		centerPanel.add(slotMachine);
 		
-		Icon image2 = new ImageIcon(getClass().getResource("wheelGif.gif"));
+		Icon image2 = new ImageIcon(getClass().getResource("wheelGif1.gif"));
 		ruotaDellaFortuna = new JLabel(image2);
 		centerPanel.add(ruotaDellaFortuna);
 		

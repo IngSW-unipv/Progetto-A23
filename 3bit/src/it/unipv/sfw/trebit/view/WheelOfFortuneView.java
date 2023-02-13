@@ -65,7 +65,7 @@ public class WheelOfFortuneView extends JFrame {
 		centerPanel.setLayout(new GridLayout(2, 1));
 		add(centerPanel, BorderLayout.CENTER);
 		
-		Icon image = new ImageIcon(getClass().getResource(""));
+		Icon image = new ImageIcon(getClass().getResource("baseWheel.png"));
 		wheel = new JLabel(image);
 		centerPanel.add(wheel);
 		
@@ -87,17 +87,17 @@ public class WheelOfFortuneView extends JFrame {
 		westPanel.setLayout(new GridLayout(3, 1));
 		add(westPanel, BorderLayout.WEST);
 		
-		Icon image1 = new ImageIcon(getClass().getResource(""));
+		Icon image1 = new ImageIcon(getClass().getResource("symbol1Wheel.png"));
 		img1 = new JButton(image1);
 		img1.setActionCommand("img1");
 		westPanel.add(img1);
 		
-		Icon image2 = new ImageIcon(getClass().getResource(""));
+		Icon image2 = new ImageIcon(getClass().getResource("symbol2Wheel.png"));
 		img2 = new JButton(image2);
 		img2.setActionCommand("img2");
 		westPanel.add(img2);
 		
-		Icon image3 = new ImageIcon(getClass().getResource(""));
+		Icon image3 = new ImageIcon(getClass().getResource("symbol3Wheel.png"));
 		img3 = new JButton(image3);
 		img3.setActionCommand("img3");
 		westPanel.add(img3);
