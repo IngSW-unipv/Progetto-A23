@@ -16,9 +16,11 @@ public class LoginController {
 	private final LoginView l;
 	private DBFacade facade = DBFacade.getInstance();
 	
-	public LoginController() {
-		l = new LoginView();
-		
+	public LoginController(LoginView l) {
+		this.l = new LoginView();	
+/*	}
+	
+	public void addListener() {*/
 		l.getButtonSignIn().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -26,8 +28,9 @@ public class LoginController {
 				Utente u = new Utente(
 						l.getStringUsername(),
 						l.getStringPassword().toString());
+				
 				try {
-					if(!facade.login(u)) {
+					if(facade.login(u) == false) {
 						JOptionPane.showMessageDialog(l, "Credenziali errate", "Login", JOptionPane.INFORMATION_MESSAGE);
 					}
 					else{

@@ -1,8 +1,9 @@
+
 /**
  * Created by Suwadith on 12/9/2016.
  */
 
-package OOP_CW2;
+/*package OOP_CW2;
 
 import javax.swing.*;
 import javax.swing.border.*;
@@ -422,4 +423,4 @@ public class GraphicalUserInterface extends JFrame {
         gui.setVisible(true);
     }
 
-}
+}*/
