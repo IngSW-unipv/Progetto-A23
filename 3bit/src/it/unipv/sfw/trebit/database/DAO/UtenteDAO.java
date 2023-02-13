@@ -20,11 +20,11 @@ public class UtenteDAO {
 			conn = DBConn.startConnection(conn,schema);
 			PreparedStatement st1;
 			ResultSet result;
-			String query = "SELECT PW FROM UTENTI WHERE USERNAME="+ "'" + u.getNome() + "'" + ";";
+			String query = "SELECT pw FROM UTENTI WHERE nome="+ "'" + u.getNome() + "'" + ";";
 			st1 = conn.prepareStatement(query);
 			result=st1.executeQuery();
 			boolean log = false;
-			if( result.getString("PW").equals(u.getPassword().toString())) {
+			if( result.getString("pw").equals(u.getPassword().toString())) {
 				log = true;
 			}	
 			conn.close();

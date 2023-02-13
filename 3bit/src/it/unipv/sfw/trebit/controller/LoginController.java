@@ -18,9 +18,8 @@ public class LoginController {
 	
 	public LoginController(LoginView l) {
 		this.l = new LoginView();	
-/*	}
-	
-	public void addListener() {*/
+
+		
 		l.getButtonSignIn().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {

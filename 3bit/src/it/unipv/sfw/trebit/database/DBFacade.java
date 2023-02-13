@@ -14,7 +14,7 @@ public class DBFacade {
 	UtenteDAO utenteDAO;
 	
 	private DBFacade() {
-		UtenteDAO u= new UtenteDAO();
+		utenteDAO = new UtenteDAO();
 	}
 	
 	public static synchronized DBFacade getInstance() {

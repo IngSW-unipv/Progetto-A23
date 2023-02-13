@@ -13,7 +13,7 @@ public class DBConn{
 		String username=null;
 		String password=null;
 	
-		DbDriver= "com.mysql.jdbc.Driver";
+		DbDriver= "com.mysql.cj.jdbc.Driver";
 		DbURL= "jdbc:mysql://34.154.119.106:3306/"+schema;
 		username="root";
 		password ="e";
