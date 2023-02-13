@@ -5,10 +5,6 @@ import java.awt.*;
 
 public class RegistrationView extends JFrame {
 	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private JLabel user;
 	private JLabel psw, cpsw;
 	private JLabel titolo;
@@ -16,14 +12,19 @@ public class RegistrationView extends JFrame {
 	private JButton signUp;
 	
 	public RegistrationView() {
+		
 		setLayout(new BorderLayout());
 		setSize(300,200);
+		
+		
 		
 		JPanel northPanel = new JPanel();
 		add(northPanel, BorderLayout.NORTH);
 		
 		titolo = new JLabel("Registrati");
 		northPanel.add(titolo);
+		
+		
 		
 		JPanel westPanel = new JPanel();
 		add(westPanel, BorderLayout.WEST);
@@ -35,17 +36,14 @@ public class RegistrationView extends JFrame {
 		psw = new JLabel("Password:");
 		westPanel.add(psw);
 		
-		cpsw = new JLabel("Conferma password:");
+		cpsw = new JLabel("Conferma \n password:");
 		westPanel.add(cpsw);
+		
+		
 		
 		JPanel centerPanel = new JPanel();
 		add(centerPanel, BorderLayout.CENTER);
 		centerPanel.setLayout(new GridLayout(4,1));
-		
-		JPanel eastPanel = new JPanel();
-		add(eastPanel, BorderLayout.EAST);
-		centerPanel.setLayout(new GridLayout(4,1));
-		
 		
 		username = new JTextField();
 		centerPanel.add(username);
@@ -65,6 +63,7 @@ public class RegistrationView extends JFrame {
 		signUp = new JButton("Sign Up");
 		signUp.setActionCommand("signUp");
 		southPanel.add(signUp);
+		
 	}
 
 	public String getStringUsername() {

@@ -43,8 +43,8 @@ public class HomeView extends JFrame {
 		
 		
 		JPanel southPanel = new JPanel();
-		add(southPanel, BorderLayout.SOUTH);
 		southPanel.setLayout(new GridLayout(2, 1));
+		add(southPanel, BorderLayout.SOUTH);
 		
 		importo = new JLabel("Scegli l'importo:");
 		southPanel.add(importo);
@@ -63,8 +63,8 @@ public class HomeView extends JFrame {
 		
 		
 		JPanel centerPanel = new JPanel();
-		add(centerPanel, BorderLayout.CENTER);
 		centerPanel.setLayout(new GridLayout(2, 2));
+		add(centerPanel, BorderLayout.CENTER);
 		
 		Icon image = new ImageIcon(getClass().getResource("slotGif.gif"));
 		slotMachine = new JLabel(image);

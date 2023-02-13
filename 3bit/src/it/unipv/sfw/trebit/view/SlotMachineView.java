@@ -3,7 +3,7 @@ package it.unipv.sfw.trebit.view;
 import java.awt.*;
 import javax.swing.*;
 
-public class SlotMachine extends JFrame {
+public class SlotMachineView extends JFrame {
 
 	private JButton spinBtn;
 	private JButton addCoinBtn;
@@ -16,7 +16,7 @@ public class SlotMachine extends JFrame {
 	private JLabel betAreaTitle;
 	private JLabel reel1, reel2, reel3;
 	
-	public SlotMachine() {
+	public SlotMachineView() {
 		
 		setLayout(new BorderLayout());
 		setSize(400, 300);
