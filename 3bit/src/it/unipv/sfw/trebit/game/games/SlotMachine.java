@@ -3,30 +3,29 @@ package it.unipv.sfw.trebit.game.games;
 public class SlotMachine implements IGames {
 	
 	private int[] numCasual;
-	private int win;
+	private double[] result= {};
 	
 	
-	public SlotMachine() {
-		win=0;
-	}
 	
-	public int turn(int extraUseless) {
+	public double[] turn(int extraUseless) {
 		
 		// variabile inizializzata a 0 ogni volta che si inizia un turno
-		win=0;		
+		result[0]=0;		
 		
 		
 		//generazione casuale spostamento di ogni colonna (tutti rispetto al punto iniziale)
 		for(int i=0;i<3;i++) {
 			numCasual[i]=(int) Math.random()*5;			//*5 simboli --> <0.0;1.0> * 5 genera lo spostamento
+			result[i+1]=numCasual[i];
 		}
 		
 		//winX sono i metodi dei casi di vittoria (restituiscono 0 se si perde)
-		win+=win1(numCasual);
-		win+=win2(numCasual);
-		win+=win3(numCasual);
+		result[0]+=win1(numCasual);
+		result[0]+=win2(numCasual);
+		result[0]+=win3(numCasual);
 		
-		return win;
+		
+		return result;
 		
 	}
 	
