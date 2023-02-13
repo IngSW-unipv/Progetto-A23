@@ -103,5 +103,53 @@ public class WheelOfFortuneView extends JFrame {
 		westPanel.add(img3);
 		
 	}
+	
+	public JButton getButtonImg1() {
+		return img1;
+	}
+	
+	public JButton getButtonImg2() {
+		return img2;
+	}
+	
+	public JButton getButtonImg3() {
+		return img3;
+	}
+	
+	public void setWheel(Icon icon) {
+		wheel.setIcon(icon);
+	}
+	
+	public JButton getButtonSpin() {
+		return spin;
+	}
+	
+	public String getSaldo2() {
+		return saldo2.getText();
+	}
+	
+	public void setSaldo2Text(String text) {
+		saldo2.setText(text);
+	}
+	
+	public String getBet2() {
+		return bet2.getText();
+	}
+	
+	public void setBet2Text(String text) {
+		bet2.setText(text);
+	}
+	
+	public JButton getButtonAddCoin() {
+		return addCoin;
+	}
+	
+	public JButton getButtonSubCoin() {
+		return subCoin;
+	}
+	
+	public void setLastWinText(String text) {
+		lastWin.setText("Last Win: " + text);
+	}
 
 }
