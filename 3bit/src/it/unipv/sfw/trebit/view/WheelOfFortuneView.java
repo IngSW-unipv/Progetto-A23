@@ -70,6 +70,7 @@ public class WheelOfFortuneView extends JFrame {
 		centerPanel.add(wheel);
 		
 		spin = new JButton("SPIN");
+		spin.setActionCommand("SPIN");
 		centerPanel.add(spin);
 		
 		
@@ -88,14 +89,17 @@ public class WheelOfFortuneView extends JFrame {
 		
 		Icon image1 = new ImageIcon(getClass().getResource(""));
 		img1 = new JButton(image1);
+		img1.setActionCommand("img1");
 		westPanel.add(img1);
 		
 		Icon image2 = new ImageIcon(getClass().getResource(""));
 		img2 = new JButton(image2);
+		img2.setActionCommand("img2");
 		westPanel.add(img2);
 		
 		Icon image3 = new ImageIcon(getClass().getResource(""));
 		img3 = new JButton(image3);
+		img3.setActionCommand("img3");
 		westPanel.add(img3);
 		
 	}
