@@ -20,6 +20,7 @@ public class SlotMachineView extends JFrame {
 		
 		setLayout(new BorderLayout());
 		setSize(400, 300);
+		setTitle("Slot-Machine");
 		
 		
 		add(northPanel(), BorderLayout.NORTH);
@@ -32,6 +33,8 @@ public class SlotMachineView extends JFrame {
 	private JPanel northPanel() {
 		
 		JPanel northPanel = new JPanel();
+		
+		//label titolo con "Punta, scommetti e vinci!"
 		
 		return northPanel;
 		

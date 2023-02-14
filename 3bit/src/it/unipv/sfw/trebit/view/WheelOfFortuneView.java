@@ -18,6 +18,7 @@ public class WheelOfFortuneView extends JFrame {
 	private JButton img1;
 	private JButton img2;
 	private JButton img3;
+	private JButton backHome;
 	
 	public WheelOfFortuneView() {
 		
@@ -33,6 +34,9 @@ public class WheelOfFortuneView extends JFrame {
 		titolo = new JLabel("Scegli l'immagine su cui puntare e vinci!");
 		northPanel.add(titolo);
 		
+		backHome = new JButton("Back to Home");
+		backHome.setActionCommand("backHome");
+		northPanel.add(backHome);
 		
 		
 		JPanel eastPanel = new JPanel();
@@ -102,6 +106,10 @@ public class WheelOfFortuneView extends JFrame {
 		img3.setActionCommand("img3");
 		westPanel.add(img3);
 		
+	}
+	
+	public JButton getButtonBackHome() {
+		return backHome;
 	}
 	
 	public JButton getButtonImg1() {
