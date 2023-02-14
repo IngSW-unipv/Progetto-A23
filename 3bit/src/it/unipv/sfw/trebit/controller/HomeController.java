@@ -61,6 +61,7 @@ public class HomeController {
 				/*da modificare per problema di accoppiamento e coesione*/
 				SlotMachineView s = new SlotMachineView();
 				s.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				//s.setSaldoText(Double.toString(c.getSaldo()));
 				s.setVisible(true);
 				
 			}
@@ -74,6 +75,7 @@ public class HomeController {
 				/*da modificare per problema di accoppiamento e coesione*/
 				WheelOfFortuneView w = new WheelOfFortuneView();
 				w.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				w.setSaldo2Text(Double.toString(c.getSaldo()));
 				w.setVisible(true);
 				
 			}
