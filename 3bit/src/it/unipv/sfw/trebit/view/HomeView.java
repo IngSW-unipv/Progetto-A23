@@ -37,7 +37,7 @@ public class HomeView extends JFrame {
 		JPanel eastPanel = new JPanel();
 		add(eastPanel, BorderLayout.EAST);
 		
-		saldo = new JLabel("il tuo saldo: € 00.00");
+		saldo = new JLabel("il tuo saldo: €");
 		eastPanel.add(saldo);
 		
 		
