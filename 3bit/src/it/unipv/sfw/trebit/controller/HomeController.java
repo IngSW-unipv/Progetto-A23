@@ -12,12 +12,12 @@ import it.unipv.sfw.trebit.view.WheelOfFortuneView;
 
 public class HomeController {
 	
-	private Conto c;
-	private HomeView view;
+	private final Conto conto;
+	private final HomeView view;
 	
-	public HomeController(Conto c, HomeView view) {
+	public HomeController(Conto conto, HomeView view) {
 		
-		this.c = c;
+		this.conto = conto;
 		this.view = view;
 				
 		setListeners();
@@ -31,10 +31,10 @@ public class HomeController {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				c.deposita(Double.parseDouble(view.getAmountText()));
+				conto.deposita(Double.parseDouble(view.getAmountText()));
 				
 				view.setAmountText();
-				view.setSaldoText(Double.toString(c.getSaldo()));
+				view.setSaldoText(Double.toString(conto.getSaldo()));
 				
 			}
 			
@@ -45,10 +45,10 @@ public class HomeController {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				c.preleva(Double.parseDouble(view.getAmountText()));
+				conto.preleva(Double.parseDouble(view.getAmountText()));
 				
 				view.setAmountText();
-				view.setSaldoText(Double.toString(c.getSaldo()));
+				view.setSaldoText(Double.toString(conto.getSaldo()));
 				
 			}
 			
@@ -61,7 +61,7 @@ public class HomeController {
 				/*da modificare per problema di accoppiamento e coesione*/
 				SlotMachineView s = new SlotMachineView();
 				s.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				//s.setSaldoText(Double.toString(c.getSaldo()));
+				//s.setSaldoText(Double.toString(conto.getSaldo()));
 				s.setVisible(true);
 				
 			}
@@ -72,11 +72,10 @@ public class HomeController {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				/*da modificare per problema di accoppiamento e coesione*/
+				
 				WheelOfFortuneView w = new WheelOfFortuneView();
-				w.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				w.setSaldo2Text(Double.toString(c.getSaldo()));
-				w.setVisible(true);
+				WheelOfFortuneController wfc = new WheelOfFortuneController(conto, w);
+				wfc.initView();
 				
 			}
 			

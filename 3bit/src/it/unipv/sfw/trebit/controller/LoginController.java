@@ -17,7 +17,7 @@ public class LoginController {
 	private DBFacade facade = DBFacade.getInstance();
 	
 	public LoginController(LoginView l) {
-		this.l = new LoginView();	
+		this.l = l;	
 
 		
 		l.getButtonSignIn().addActionListener(new ActionListener() {

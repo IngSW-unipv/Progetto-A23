@@ -11,15 +11,23 @@ import it.unipv.sfw.trebit.view.WheelOfFortuneView;
 
 public class WheelOfFortuneController {
 	
-	private Conto c;
+	private Conto conto;
 	private WheelOfFortuneView view;
 	
-	public WheelOfFortuneController(Conto c, WheelOfFortuneView view) {
+	public WheelOfFortuneController(Conto conto, WheelOfFortuneView view) {
 		
-		this.c = c;
+		this.conto = conto;
 		this.view = view;
 				
 		setListeners();
+		
+	}
+	
+	public void initView() {
+		
+		this.view.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.view.setSaldo2Text(Double.toString(conto.getSaldo()));
+		this.view.setVisible(true);
 		
 	}
 		
@@ -32,7 +40,7 @@ public class WheelOfFortuneController {
 				/*da modificare per problema di accoppiamento e coesione*/
 				HomeView h = new HomeView();
 				h.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				h.setSaldoText(Double.toString(c.getSaldo()));
+				h.setSaldoText(Double.toString(conto.getSaldo()));
 				h.setVisible(true);
 				
 			}
