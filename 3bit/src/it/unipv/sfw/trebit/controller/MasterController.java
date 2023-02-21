@@ -19,7 +19,7 @@ public class MasterController {
 	
 	private Conto c;
 	
-	public MasterController() {
+	private MasterController() {
 		this.login = new LoginController(lview);
 		this.register = new RegistrationController(rview);
 		this.home = new HomeController(c, hview);
@@ -28,7 +28,7 @@ public class MasterController {
 	
 	public static MasterController getInstance() {
 		if (instance == null) {
-			instance= new MasterController();
+			instance = new MasterController();
 		}
 		return instance;
 	}
