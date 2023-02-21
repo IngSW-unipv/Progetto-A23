@@ -58,10 +58,6 @@ public class Game {
 
 //devi togliere tutti i commenti prima di dire che è giusto
 
-//cose da fare:
-//1) due giochi con interfaccia				FATTI 		(mi da ancora errore l'istanza .....)
-//!!!!!!!!									MANCA IL METODO CHE RITORNA AL CONTROLLER LO SPOSTAMENTO DEI SIMBOLI
-//2) moltiplicatore con strategy
 
 
 

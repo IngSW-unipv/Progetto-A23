@@ -1,13 +1,16 @@
 package it.unipv.sfw.trebit.game.games;
 
+import it.unipv.sfw.trebit.game.multiplier.MultiplierContext;
+
 public class WheelOfFortune implements IGames{
 	
 	private int numCasual;
 	double[] result= {};
 	
 	
-	public double[] turn(int chosenSymbol) {
-				
+	public double[] turn(double bet, int chosenSymbol) {
+		
+		MultiplierContext m=MultiplierContext.getInstance();		
 		
 		
 		//generazione casuale dello spostamento (rispetto al punto iniziale)

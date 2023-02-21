@@ -1,5 +1,7 @@
 package it.unipv.sfw.trebit.game.games;
 
+import it.unipv.sfw.trebit.game.multiplier.MultiplierContext;
+
 public class SlotMachine implements IGames {
 	
 	private int[] numCasual;
@@ -7,7 +9,9 @@ public class SlotMachine implements IGames {
 	
 	
 	
-	public double[] turn(int extraUseless) {
+	public double[] turn(double bet,int extra) {
+		
+		MultiplierContext m=MultiplierContext.getInstance();
 		
 		// variabile inizializzata a 0 ogni volta che si inizia un turno
 		result[0]=0;		
