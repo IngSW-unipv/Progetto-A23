@@ -46,6 +46,10 @@ public class MasterController {
 	public HomeController getHomeController() {
 		return home;
 	}
+	
+	public SlotMachineController getSlotMachineController() {
+		return slot;
+	}
 
 	public WheelOfFortuneController getWheelOfFortuneController() {
 		return ruota;
