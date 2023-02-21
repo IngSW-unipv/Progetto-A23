@@ -1,10 +1,6 @@
 package it.unipv.sfw.trebit.view.masterView;
 
-import it.unipv.sfw.trebit.view.HomeView;
-import it.unipv.sfw.trebit.view.LoginView;
-import it.unipv.sfw.trebit.view.RegistrationView;
-import it.unipv.sfw.trebit.view.SlotMachineView;
-import it.unipv.sfw.trebit.view.WheelOfFortuneView;
+import it.unipv.sfw.trebit.view.*;
 
 public class MasterView {
 	

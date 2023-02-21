@@ -1,7 +1,9 @@
-package it.unipv.sfw.trebit.controller;
+package it.unipv.sfw.trebit.controller.masterController;
 
 import it.unipv.sfw.trebit.conto.Conto;
+import it.unipv.sfw.trebit.controller.*;
 import it.unipv.sfw.trebit.view.*;
+import it.unipv.sfw.trebit.view.masterView.MasterView;
 
 public class MasterController {
 	
@@ -10,20 +12,20 @@ public class MasterController {
 	private LoginController login;
 	private RegistrationController register;
 	private HomeController home;
+	private SlotMachineControllerController slot;
 	private WheelOfFortuneController ruota;
 	
-	private LoginView lview;
-	private RegistrationView rview;
-	private HomeView hview;
-	private WheelOfFortuneView wview;
+	private MasterView mv;
 	
 	private Conto c;
 	
 	private MasterController() {
-		this.login = new LoginController(lview);
-		this.register = new RegistrationController(rview);
-		this.home = new HomeController(c, hview);
-		this.ruota = new WheelOfFortuneController(c, wview);
+		mv = MasterView.getInstance();
+		this.login = new LoginController(mv.getLoginView());
+		this.register = new RegistrationController(mv.getRegistrationView());
+		this.home = new HomeController(c, mv.getHomeView());
+		this.slot = new SlotMachineController(c, mv.getSlotMachineView());
+		this.ruota = new WheelOfFortuneController(c, mv.getWheelOfFortuneView());
 	}
 	
 	public static MasterController getInstance() {
