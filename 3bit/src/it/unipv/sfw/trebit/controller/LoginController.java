@@ -18,7 +18,10 @@ public class LoginController {
 	
 	public LoginController(LoginView l) {
 		this.l = l;	
-
+		setListeners();
+	}
+	
+	public void setListeners() {
 		
 		l.getButtonSignIn().addActionListener(new ActionListener() {
 			@Override
@@ -48,6 +51,10 @@ public class LoginController {
 				JOptionPane.showMessageDialog(l, "WorkInProgress", "Registrazione", JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
+	}
+
+	public LoginView getL() {
+		return l;
 	}
 	
 	
