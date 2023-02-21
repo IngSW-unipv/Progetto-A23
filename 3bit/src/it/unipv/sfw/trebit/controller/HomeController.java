@@ -58,11 +58,10 @@ public class HomeController {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				/*da modificare per problema di accoppiamento e coesione*/
+				
 				SlotMachineView s = new SlotMachineView();
-				s.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				//s.setSaldoText(Double.toString(conto.getSaldo()));
-				s.setVisible(true);
+				SlotMachineController sm = new SlotMachineController(conto, s);
+				sm.initView();
 				
 			}
 			
