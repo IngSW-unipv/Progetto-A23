@@ -3,7 +3,7 @@ package it.unipv.sfw.trebit.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JFrame;
+import javax.swing.*;
 
 import it.unipv.sfw.trebit.conto.Conto;
 import it.unipv.sfw.trebit.controller.masterController.MasterController;
@@ -14,12 +14,12 @@ import it.unipv.sfw.trebit.view.WheelOfFortuneView;
 public class HomeController {
 	
 	private final Conto conto;
-	private final HomeView view;
+	private final HomeView homeView;
 	
-	public HomeController(Conto conto, HomeView view) {
+	public HomeController(Conto conto, HomeView homeView) {
 		
 		this.conto = conto;
-		this.view = view;
+		this.homeView = homeView;
 				
 		setListeners();
 		
@@ -27,35 +27,47 @@ public class HomeController {
 		
 	public void setListeners() {
 		
-		view.getButtonDeposita().addActionListener(new ActionListener() {
+		homeView.getButtonDeposita().addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				conto.deposita(Double.parseDouble(view.getAmountText()));
-				
-				view.setAmountText();
-				view.setSaldoText(Double.toString(conto.getSaldo()));
+				try {
+					
+					conto.deposita(Double.parseDouble(homeView.getAmountText()));
+					
+					homeView.setAmountText();
+					homeView.setSaldoText(Double.toString(conto.getSaldo()));
+					
+				} catch(NumberFormatException exception) {
+					homeView.popUp("ERRORE! Inserire un numero positivo e riprovare");
+				}
 				
 			}
 			
 		});
 		
-		view.getButtonPreleva().addActionListener(new ActionListener() {
+		homeView.getButtonPreleva().addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				conto.preleva(Double.parseDouble(view.getAmountText()));
-				
-				view.setAmountText();
-				view.setSaldoText(Double.toString(conto.getSaldo()));
+				try {
+					
+					conto.preleva(Double.parseDouble(homeView.getAmountText()));
+					
+					homeView.setAmountText();
+					homeView.setSaldoText(Double.toString(conto.getSaldo()));
+					
+				} catch(NumberFormatException exception) {
+					homeView.popUp("ERRORE! Inserire un numero positivo e riprovare");
+				}
 				
 			}
 			
 		});
 		
-		view.getButtonPlaySlot().addActionListener(new ActionListener() {
+		homeView.getButtonPlaySlot().addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -67,7 +79,7 @@ public class HomeController {
 			
 		});
 		
-		view.getButtonPlayRuota().addActionListener(new ActionListener() {
+		homeView.getButtonPlayRuota().addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {

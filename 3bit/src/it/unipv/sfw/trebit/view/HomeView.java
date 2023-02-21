@@ -111,5 +111,9 @@ public class HomeView extends JFrame {
 	public JButton getButtonPlayRuota() {
 		return playRuota;
 	}
+	
+	public void popUp(String message) {
+		JOptionPane.showMessageDialog(this, message);
+	}
 
 }
