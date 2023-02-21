@@ -6,12 +6,19 @@ public class WheelOfFortune implements IGames{
 	
 	private int numCasual;
 	double[] result= {};
+	private int coin;
+	private double win;
+	private double multiplier;
+	
+	public WheelOfFortune() {
+		coin=0;
+	}
 	
 	
-	public double[] turn(double bet, int chosenSymbol) {
+	public double[] turn(int chosenSymbol) {
 		
 		MultiplierContext m=MultiplierContext.getInstance();		
-		
+		multiplier=m.getMultiplier();
 		
 		//generazione casuale dello spostamento (rispetto al punto iniziale)
 		numCasual=(int) Math.random()*11;				//*11 simboli nella sequenza --> <0.0;1.0> * 11 genera lo spostamento
@@ -20,23 +27,34 @@ public class WheelOfFortune implements IGames{
 		switch(chosenSymbol) {
 		case 0:
 			if(numCasual==0)
-				result[0]=14;
+				win=14;
 			else
-				result[0]=0;
+				win=0;
 		case 1:
 			if(numCasual%2==1)
-				result[0]=2;
+				win=2;
 			else
-				result[0]=0;
+				win=0;
 		case 2:
 			if(numCasual%2==0 && numCasual!=0)
-				result[0]=2;
+				win=2;
 			else
-				result[0]=0;
+				win=0;
 		}
+		
+		result[0]=win*multiplier*coin-coin;
 		
 		return result;
 		
 	}
 	
+	
+	public void subCoin() {
+		if(coin>0)
+			coin--;
+	}
+	
+	public void addCoin() {
+		coin++;
+	}
 }
