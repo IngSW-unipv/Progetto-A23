@@ -7,6 +7,7 @@ import javax.swing.*;
 
 import it.unipv.sfw.trebit.conto.Conto;
 import it.unipv.sfw.trebit.controller.masterController.MasterController;
+import it.unipv.sfw.trebit.exception.YouCantChooseTheGame;
 import it.unipv.sfw.trebit.view.HomeView;
 import it.unipv.sfw.trebit.view.SlotMachineView;
 import it.unipv.sfw.trebit.view.WheelOfFortuneView;
@@ -72,6 +73,10 @@ public class HomeController {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
+				if(conto.getSaldo() == 0) {
+					throw new YouCantChooseTheGame(homeView);
+				}
+				
 				SlotMachineController smc = MasterController.getInstance().getSlotMachineController();
 				smc.initView();
 				
@@ -83,6 +88,10 @@ public class HomeController {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				
+				if(conto.getSaldo() == 0) {
+					throw new YouCantChooseTheGame(homeView);
+				}
 				
 				WheelOfFortuneController wfc = MasterController.getInstance().getWheelOfFortuneController();
 				wfc.initView();
