@@ -33,7 +33,7 @@ public class MasterController {
 		return instance;
 	}
 	
-	public LoginController getLoginCon() {
+	public LoginController getLoginController() {
 		return login;
 	}
 
