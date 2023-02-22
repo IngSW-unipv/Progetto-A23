@@ -73,32 +73,50 @@ public class HomeController {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				if(conto.getSaldo() == 0) {
-					throw new YouCantChooseTheGame(homeView);
+				try {
+
+					checkSaldo();
+
+					SlotMachineController smc = MasterController.getInstance().getSlotMachineController();
+					smc.initView();
+
+				} catch (YouCantChooseTheGame e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
 				}
-				
-				SlotMachineController smc = MasterController.getInstance().getSlotMachineController();
-				smc.initView();
 				
 			}
 			
 		});
 		
 		homeView.getButtonPlayRuota().addActionListener(new ActionListener() {
-
+			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				if(conto.getSaldo() == 0) {
-					throw new YouCantChooseTheGame(homeView);
+				try {
+					
+					checkSaldo();
+					
+					WheelOfFortuneController wfc = MasterController.getInstance().getWheelOfFortuneController();
+					wfc.initView();
+					
+				} catch (YouCantChooseTheGame e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
 				}
-				
-				WheelOfFortuneController wfc = MasterController.getInstance().getWheelOfFortuneController();
-				wfc.initView();
 				
 			}
 			
 		});
+		
+	}
+	
+	private void checkSaldo() throws YouCantChooseTheGame {
+		
+		if(conto.getSaldo() == 0) {
+			throw new YouCantChooseTheGame(homeView);
+		}
 		
 	}
 	
