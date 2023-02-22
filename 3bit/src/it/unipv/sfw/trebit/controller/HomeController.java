@@ -25,6 +25,14 @@ public class HomeController {
 		setListeners();
 		
 	}
+	
+	public void initView() {
+
+		this.homeView.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.homeView.setSaldoText(Double.toString(conto.getSaldo()));
+		this.homeView.setVisible(true);
+
+	}
 		
 	public void setListeners() {
 		
@@ -79,6 +87,8 @@ public class HomeController {
 
 					SlotMachineController smc = MasterController.getInstance().getSlotMachineController();
 					smc.initView();
+					
+					homeView.setVisible(false);
 
 				} catch (YouCantChooseTheGame e1) {
 					// TODO Auto-generated catch block
@@ -100,6 +110,8 @@ public class HomeController {
 					
 					WheelOfFortuneController wfc = MasterController.getInstance().getWheelOfFortuneController();
 					wfc.initView();
+					
+					homeView.setVisible(false);
 					
 				} catch (YouCantChooseTheGame e1) {
 					// TODO Auto-generated catch block
