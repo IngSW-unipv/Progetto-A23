@@ -12,7 +12,7 @@ public class MasterController {
 	private LoginController login;
 	private RegistrationController register;
 	private HomeController home;
-	private SlotMachineControllerController slot;
+	private SlotMachineController slot;
 	private WheelOfFortuneController ruota;
 	
 	private MasterView mv;
