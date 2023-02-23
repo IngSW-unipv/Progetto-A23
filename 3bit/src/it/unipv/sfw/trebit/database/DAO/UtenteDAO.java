@@ -21,12 +21,12 @@ public class UtenteDAO {
 			conn = DBConn.startConnection(conn,schema);
 			PreparedStatement st1;
 			ResultSet result;
-			String query = "SELECT pw from UTENTI where nome= ?;";
+			String query = "SELECT PW from UTENTI where USERNAME= ?;";
 			st1 = conn.prepareStatement(query);
 			st1.setString(1, u.getUsername());
 			result=st1.executeQuery();
 			boolean log = false;
-			if( result.next() && result.getString("pw").equals(u.getPassword())) {
+			if( result.next() && result.getString("PW").equals(u.getPassword())) {
 				log = true;
 			}	
 			DBConn.closeConnection(conn);
@@ -37,8 +37,11 @@ public class UtenteDAO {
 			conn = DBConn.startConnection(conn,schema);
 			String query = "INSERT INTO UTENTI VALUES(?,?)";
 			PreparedStatement st1 = conn.prepareStatement(query);
-			st1.setString(1, u.getUsername());
-			st1.setString(2, u.getPassword());
+			st1.setString(1, u.getNome());
+			st1.setString(2,  u.getCognome());
+			st1.setString(3, u.getUsername());
+			st1.setInt(4, 1);
+			st1.setString(5, u.getPassword());
 			st1.executeUpdate();
 			DBConn.closeConnection(conn);
 		}

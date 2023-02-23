@@ -6,16 +6,17 @@ import java.awt.*;
 public class RegistrationView extends JFrame {
 	
 	private JLabel user;
+	private JLabel nome, cognome;
 	private JLabel psw, cpsw;
 	private JLabel titolo;
-	private JTextField username,password,cpassword;
+	private JTextField nom, cognom, username,password,cpassword;
 	private JButton continua;
 	private JButton back;
 	
 	public RegistrationView() {
 		
 		setLayout(new BorderLayout());
-		setSize(300,200);
+		setSize(350,250);
 		
 		
 		
@@ -29,7 +30,13 @@ public class RegistrationView extends JFrame {
 		
 		JPanel westPanel = new JPanel();
 		add(westPanel, BorderLayout.WEST);
-		westPanel.setLayout(new GridLayout(4,1));
+		westPanel.setLayout(new GridLayout(6,1));
+		
+		nome = new JLabel("Nome:");
+		westPanel.add(nome);
+		
+		cognome = new JLabel("Cognome");
+		westPanel.add(cognome);
 		
 		user = new JLabel("Username:");
 		westPanel.add(user);
@@ -44,7 +51,15 @@ public class RegistrationView extends JFrame {
 		
 		JPanel centerPanel = new JPanel();
 		add(centerPanel, BorderLayout.CENTER);
-		centerPanel.setLayout(new GridLayout(4,1));
+		centerPanel.setLayout(new GridLayout(6,1));
+		
+		nom = new JTextField();
+		centerPanel.add(nom);
+		nom.setColumns(10);
+		
+		cognom = new JTextField();
+		centerPanel.add(cognom);
+		cognom.setColumns(10);
 		
 		username = new JTextField();
 		centerPanel.add(username);
@@ -70,6 +85,13 @@ public class RegistrationView extends JFrame {
 		southPanel.add(continua);
 		
 	}
+	
+	public String getStringNome() {
+		return nome.getText();
+	}
+	public String getStringCognome() {
+		return cognome.getText();
+	}
 
 	public String getStringUsername() {
 		return username.getText();
@@ -83,11 +105,11 @@ public class RegistrationView extends JFrame {
 		return cpassword.getText();
 	}
 
-	public JButton getButtonSignUp() {
+	public JButton getButtonContinue() {
 		return continua;
 	}
 	
-	public JButton getButtonSignIn() {
+	public JButton getButtonBack() {
 		return back;
 	}
 
