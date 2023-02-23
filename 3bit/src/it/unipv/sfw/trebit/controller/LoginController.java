@@ -1,9 +1,12 @@
 package it.unipv.sfw.trebit.controller;
 
+import it.unipv.sfw.trebit.controller.masterController.MasterController;
 import it.unipv.sfw.trebit.database.DBFacade;
+import it.unipv.sfw.trebit.model.Conto;
 import it.unipv.sfw.trebit.model.account.Utente;
 import it.unipv.sfw.trebit.view.LoginView;
-import it.unipv.sfw.trebit.view.masterView.MasterView;
+import it.unipv.sfw.trebit.view.*;
+import it.unipv.sfw.trebit.view.masterView.*;
 
 import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
@@ -17,11 +20,13 @@ public class LoginController {
 	
 	private final LoginView l;
 	private DBFacade facade = DBFacade.getInstance();
+	private MasterController mc = MasterController.getInstance();
+	private MasterView mv = MasterView.getInstance();
 	
-	public LoginController() {
-		this.l = MasterView.getInstance().getLoginView();
-		l.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		l.setVisible(true);
+	private Conto c;
+	
+	public LoginController(LoginView l) {
+		this.l = l;
 		setListeners();
 	}
 	
@@ -40,7 +45,10 @@ public class LoginController {
 						JOptionPane.showMessageDialog(l, "Credenziali errate", "Login", JOptionPane.INFORMATION_MESSAGE);
 					}
 					else{
-						JOptionPane.showMessageDialog(l, "Accesso autorizzato", "Login", JOptionPane.INFORMATION_MESSAGE);
+						//JOptionPane.showMessageDialog(l, "Accesso autorizzato", "Login", JOptionPane.INFORMATION_MESSAGE);
+						l.dispose();
+						HomeView h = mv.getHomeView();
+						mc.getHomeController(c, h);
 					}
 					
 				} catch (HeadlessException | SQLException e1) {
@@ -52,14 +60,11 @@ public class LoginController {
 		
 		l.getButtonSignUp().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(l, "WorkInProgress", "Registrazione", JOptionPane.INFORMATION_MESSAGE);
+				//JOptionPane.showMessageDialog(l, "WorkInProgress", "Registrazione", JOptionPane.INFORMATION_MESSAGE);
+				l.dispose();
+				RegistrationView r = mv.getRegistrationView();
+				mc.getRegistrationController(r);
 			}
 		});
 	}
-
-	public LoginView getL() {
-		return l;
-	}
-	
-	
 }

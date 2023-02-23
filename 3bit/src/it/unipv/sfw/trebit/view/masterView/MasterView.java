@@ -1,5 +1,7 @@
 package it.unipv.sfw.trebit.view.masterView;
 
+import javax.swing.JFrame;
+
 import it.unipv.sfw.trebit.view.*;
 
 public class MasterView {
@@ -30,22 +32,32 @@ public class MasterView {
 	}
 	
 	public LoginView getLoginView() {
+		lview.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		lview.setVisible(true);
 		return this.lview;
 	}
 	
 	public RegistrationView getRegistrationView() {
+		rview.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		rview.setVisible(true);
 		return this.rview;
 	}
 	
 	public HomeView getHomeView() {
+		hview.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		hview.setVisible(true);
 		return this.hview;
 	}
 	
 	public SlotMachineView getSlotMachineView() {
+		sview.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		sview.setVisible(true);
 		return this.sview;
 	}
 	
 	public WheelOfFortuneView getWheelOfFortuneView() {
+		wview.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		wview.setVisible(true);
 		return this.wview;
 	}
 }

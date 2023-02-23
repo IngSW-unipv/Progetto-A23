@@ -9,23 +9,7 @@ public class MasterController {
 	
 	private static MasterController instance;
 	
-	private LoginController login;
-	private RegistrationController register;
-	private HomeController home;
-	private SlotMachineController slot;
-	private WheelOfFortuneController ruota;
-	
-	private MasterView mv;
-	
-	private Conto c;
-	
 	private MasterController() {
-		mv = MasterView.getInstance();
-		this.login = new LoginController();
-		this.register = new RegistrationController(mv.getRegistrationView());
-		this.home = new HomeController(c, mv.getHomeView());
-		this.slot = new SlotMachineController(c, mv.getSlotMachineView());
-		this.ruota = new WheelOfFortuneController(c, mv.getWheelOfFortuneView());
 	}
 	
 	public static MasterController getInstance() {
@@ -35,24 +19,29 @@ public class MasterController {
 		return instance;
 	}
 	
-	public LoginController getLoginController() {
-		return login;
+	public LoginController getLoginController(LoginView l) {
+		LoginController c = new LoginController(l);
+		return c;
 	}
 
-	public RegistrationController getRegistrationController() {
-		return register;
+	public RegistrationController getRegistrationController(RegistrationView r) {
+		RegistrationController c = new RegistrationController(r);
+		return c;
 	}
 
-	public HomeController getHomeController() {
-		return home;
+	public HomeController getHomeController(Conto conto, HomeView h) {
+		HomeController c = new HomeController(conto, h);
+		return c;
 	}
 	
-	public SlotMachineController getSlotMachineController() {
-		return slot;
+	public SlotMachineController getSlotMachineController(Conto conto, SlotMachineView sm) {
+		SlotMachineController c = new SlotMachineController(conto, sm);
+		return c;
 	}
 
-	public WheelOfFortuneController getWheelOfFortuneController() {
-		return ruota;
+	public WheelOfFortuneController getWheelOfFortuneController(Conto conto, WheelOfFortuneView wf) {
+		WheelOfFortuneController c = new WheelOfFortuneController(conto, wf);
+		return c;
 	}
 	
 }

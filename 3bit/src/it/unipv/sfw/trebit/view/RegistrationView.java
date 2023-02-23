@@ -9,7 +9,8 @@ public class RegistrationView extends JFrame {
 	private JLabel psw, cpsw;
 	private JLabel titolo;
 	private JTextField username,password,cpassword;
-	private JButton signUp;
+	private JButton continua;
+	private JButton back;
 	
 	public RegistrationView() {
 		
@@ -60,9 +61,13 @@ public class RegistrationView extends JFrame {
 		JPanel southPanel = new JPanel();
 		add(southPanel, BorderLayout.SOUTH);
 		
-		signUp = new JButton("Sign Up");
-		signUp.setActionCommand("signUp");
-		southPanel.add(signUp);
+		back = new JButton("Back");
+		back.setActionCommand("back");
+		southPanel.add(back);
+		
+		continua = new JButton("Continue");
+		continua.setActionCommand("continua");
+		southPanel.add(continua);
 		
 	}
 
@@ -79,7 +84,11 @@ public class RegistrationView extends JFrame {
 	}
 
 	public JButton getButtonSignUp() {
-		return signUp;
+		return continua;
+	}
+	
+	public JButton getButtonSignIn() {
+		return back;
 	}
 
 }
