@@ -1,7 +1,7 @@
 package it.unipv.sfw.trebit.controller;
 
-import it.unipv.sfw.trebit.conto.Conto;
 import it.unipv.sfw.trebit.database.DBFacade;
+import it.unipv.sfw.trebit.model.Conto;
 import it.unipv.sfw.trebit.view.RegistrationView;
 import it.unipv.sfw.trebit.view.SlotMachineView;
 

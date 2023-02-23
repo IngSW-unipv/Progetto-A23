@@ -1,8 +1,8 @@
-package it.unipv.sfw.trebit.game;
+package it.unipv.sfw.trebit.model.game;
 
-import it.unipv.sfw.trebit.game.games.SlotMachine;
-import it.unipv.sfw.trebit.game.games.WheelOfFortune;
-import it.unipv.sfw.trebit.game.multiplier.MultiplierContext;
+import it.unipv.sfw.trebit.model.game.games.SlotMachine;
+import it.unipv.sfw.trebit.model.game.games.WheelOfFortune;
+import it.unipv.sfw.trebit.model.game.multiplier.MultiplierContext;
 
 public class Game {
 	private double multiplier;

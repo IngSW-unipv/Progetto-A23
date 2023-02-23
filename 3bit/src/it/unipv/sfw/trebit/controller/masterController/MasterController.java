@@ -1,7 +1,7 @@
 package it.unipv.sfw.trebit.controller.masterController;
 
-import it.unipv.sfw.trebit.conto.Conto;
 import it.unipv.sfw.trebit.controller.*;
+import it.unipv.sfw.trebit.model.Conto;
 import it.unipv.sfw.trebit.view.*;
 import it.unipv.sfw.trebit.view.masterView.MasterView;
 
@@ -21,7 +21,7 @@ public class MasterController {
 	
 	private MasterController() {
 		mv = MasterView.getInstance();
-		this.login = new LoginController(mv.getLoginView());
+		this.login = new LoginController();
 		this.register = new RegistrationController(mv.getRegistrationView());
 		this.home = new HomeController(c, mv.getHomeView());
 		this.slot = new SlotMachineController(c, mv.getSlotMachineView());

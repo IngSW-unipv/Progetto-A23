@@ -1,4 +1,4 @@
-package it.unipv.sfw.trebit.conto;
+package it.unipv.sfw.trebit.model;
 
 public class Conto {
 

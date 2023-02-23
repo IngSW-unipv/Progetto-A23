@@ -2,9 +2,8 @@ package it.unipv.sfw.trebit.database;
 
 import java.sql.SQLException;
 
-
 import it.unipv.sfw.trebit.database.DAO.UtenteDAO;
-import it.unipv.sfw.trebit.utente.Utente;
+import it.unipv.sfw.trebit.model.account.Utente;
 
 
 public class DBFacade {

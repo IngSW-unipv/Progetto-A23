@@ -1,4 +1,4 @@
-package it.unipv.sfw.trebit.game.multiplier;
+package it.unipv.sfw.trebit.model.game.multiplier;
 
 import java.io.FileInputStream;
 import java.lang.reflect.Constructor;

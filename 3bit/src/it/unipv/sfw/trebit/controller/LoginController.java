@@ -1,14 +1,16 @@
 package it.unipv.sfw.trebit.controller;
 
 import it.unipv.sfw.trebit.database.DBFacade;
-import it.unipv.sfw.trebit.utente.Utente;
+import it.unipv.sfw.trebit.model.account.Utente;
 import it.unipv.sfw.trebit.view.LoginView;
+import it.unipv.sfw.trebit.view.masterView.MasterView;
 
 import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 public class LoginController {
@@ -16,8 +18,10 @@ public class LoginController {
 	private final LoginView l;
 	private DBFacade facade = DBFacade.getInstance();
 	
-	public LoginController(LoginView l) {
-		this.l = l;	
+	public LoginController() {
+		this.l = MasterView.getInstance().getLoginView();
+		l.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		l.setVisible(true);
 		setListeners();
 	}
 	
@@ -27,7 +31,7 @@ public class LoginController {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				Utente u = new Utente(
+				Utente u = new Utente("","",
 						l.getStringUsername(),
 						l.getStringPassword().toString());
 				

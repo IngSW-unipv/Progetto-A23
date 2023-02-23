@@ -1,7 +1,7 @@
 package it.unipv.sfw.trebit.casino;
 
-import it.unipv.sfw.trebit.game.Game;
-import it.unipv.sfw.trebit.conto.Conto;
+import it.unipv.sfw.trebit.model.Conto;
+import it.unipv.sfw.trebit.model.game.Game;
 import it.unipv.sfw.trebit.database.*;
 
 public class Casino {

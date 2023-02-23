@@ -5,9 +5,9 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-import it.unipv.sfw.trebit.conto.Conto;
 import it.unipv.sfw.trebit.controller.masterController.MasterController;
 import it.unipv.sfw.trebit.exception.YouCantChooseTheGame;
+import it.unipv.sfw.trebit.model.Conto;
 import it.unipv.sfw.trebit.view.HomeView;
 import it.unipv.sfw.trebit.view.SlotMachineView;
 import it.unipv.sfw.trebit.view.WheelOfFortuneView;
