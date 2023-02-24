@@ -1,6 +1,6 @@
-package it.unipv.sfw.trebit.game.games;
+package it.unipv.sfw.trebit.model.game.games;
 
-import it.unipv.sfw.trebit.game.multiplier.MultiplierContext;
+import it.unipv.sfw.trebit.model.game.multiplier.MultiplierContext;
 
 public class WheelOfFortune implements IGames{
 	

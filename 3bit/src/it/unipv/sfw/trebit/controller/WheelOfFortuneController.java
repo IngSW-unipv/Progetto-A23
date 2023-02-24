@@ -5,10 +5,10 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 
-import it.unipv.sfw.trebit.conto.Conto;
+import it.unipv.sfw.trebit.model.Conto;
 import it.unipv.sfw.trebit.view.HomeView;
 import it.unipv.sfw.trebit.view.WheelOfFortuneView;
-import it.unipv.sfw.trebit.game.games.WheelOfFortune;
+import it.unipv.sfw.trebit.model.game.games.WheelOfFortune;
 
 public class WheelOfFortuneController {
 	
