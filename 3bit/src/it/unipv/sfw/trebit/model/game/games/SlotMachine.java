@@ -6,12 +6,16 @@ public class SlotMachine implements IGames {
 	
 	private int[] numCasual;
 	private double[] result= {};
+	private double multiplier;
+	private double win;
+	private double coin;
 	
 	
-	
-	public double[] turn(double bet,int extra) {
+	public double[] turn(int uselessVariable) {
 		
 		MultiplierContext m=MultiplierContext.getInstance();
+		multiplier=m.getMultiplier();
+		
 		
 		// variabile inizializzata a 0 ogni volta che si inizia un turno
 		result[0]=0;		
@@ -23,42 +27,43 @@ public class SlotMachine implements IGames {
 			result[i+1]=numCasual[i];
 		}
 		
-		//winX sono i metodi dei casi di vittoria (restituiscono 0 se si perde)
-		result[0]+=win1(numCasual);
-		result[0]+=win2(numCasual);
-		result[0]+=win3(numCasual);
+		//victoryCase è il metodo del caso di vittoria (restituisce 0 se si perde)
+		win=victoryCase(numCasual);
 		
+		
+		
+		
+		
+		result[0]=win*multiplier*coin-coin;
+		coin=0;
 		
 		return result;
 		
+		
 	}
 	
-	//caso vittoria 1:	3 simboli uguali sulla stessa riga 
-	public int win1(int[] num) {
+	
+	//caso vittoria:	3 simboli uguali sulla stessa riga 
+	public int victoryCase(int[] num) {
 		if(num[0]==num[1] && num[1]==num[2])
 			return 5;
 		else
 			return 0;
 	}
 	
-	
-	
-	//caso vittoria 2:	3 simboli uguali sulla diagonale \
-	public int win2(int[] num) {
-		if(num[0]==num[1]+1 && num[1]==num[2]+2)
-			return 3;
-		else
-			return 0;
-	}
-	
-	
-	
-	//caso vittoria 3:	3 simboli uguali sulla diagonale / 
-	public int win3(int[] num) {
-		if(num[0]==num[1]-1 && num[1]==num[2]-2)
-			return 3;
-		else
-			return 0;
-	}
 
+	public double subCoin() {
+		if(coin>0)
+			coin--;
+		
+		return coin;
+	}
+	
+	public double addCoin() {
+		coin++;
+		
+		return coin;
+	}
 }
+	
+

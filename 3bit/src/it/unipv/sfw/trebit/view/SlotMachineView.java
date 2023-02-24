@@ -114,18 +114,22 @@ public class SlotMachineView extends JFrame {
 	
 	}
 	
-	
-	public String getSaldo2() {
-		return saldo2.getText();
+	public JButton getButtonBackHome() {
+		return backHome;
 	}
+	
+	
+/*	public String getSaldo2() {
+		return saldo2.getText();
+	}*/
 	
 	public void setSaldo2Text(String text) {
 		saldo2.setText(text);
 	}
 	
-	public String getBet2() {
+/*	public String getBet2() {
 		return bet2.getText();
-	}
+	}*/
 	
 	public void setBet2Text(String text) {
 		bet2.setText(text);
@@ -147,10 +151,10 @@ public class SlotMachineView extends JFrame {
 		return spin;
 	}
 	
-	public void setBoxes(int[] iconChose) {
-		box1.setIcon(image[iconChose[0]]);
-		box2.setIcon(image[iconChose[1]]);
-		box3.setIcon(image[iconChose[2]]);
+	public void setBoxes(double[] iconChose) {
+		box1.setIcon(image[(int) iconChose[1]]);
+		box2.setIcon(image[(int) iconChose[2]]);
+		box3.setIcon(image[(int) iconChose[3]]);
 	}
 
 	

@@ -18,11 +18,16 @@ public class WheelOfFortuneController {
 	private int symbol;
 	double[] result= {};
 	private double outcome;
+	private double bet;
+
 	
 	public WheelOfFortuneController(Conto conto, WheelOfFortuneView view) {
 		
 		this.conto = conto;
 		this.view = view;
+		
+		bet=0;
+		outcome=0;
 		
 		
 		WheelOfFortune w=new WheelOfFortune();
@@ -35,6 +40,8 @@ public class WheelOfFortuneController {
 		
 		this.view.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.view.setSaldo2Text(Double.toString(conto.getSaldo()));
+		this.view.setBet2Text(Double.toString(bet));
+		this.view.setLastWinText(Double.toString(outcome));
 		this.view.setVisible(true);
 		
 	}
@@ -108,8 +115,12 @@ public class WheelOfFortuneController {
 				
 				
 				view.setWheel((int) result[1]);
+				view.setLastWinText(Double.toString(outcome));
 				
+				view.setSaldo2Text(Double.toString(conto.getSaldo()));
 				
+				bet=0;
+				view.setBet2Text(Double.toString(bet));
 			}
 			
 		});
@@ -118,7 +129,8 @@ public class WheelOfFortuneController {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				w.addCoin();
+				bet=w.addCoin();
+				view.setBet2Text(Double.toString(bet));
 				
 				
 			}
@@ -129,7 +141,8 @@ public class WheelOfFortuneController {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				w.subCoin();
+				bet=w.subCoin();
+				view.setBet2Text(Double.toString(bet));
 				
 				
 			}

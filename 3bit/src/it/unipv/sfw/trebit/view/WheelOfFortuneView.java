@@ -149,17 +149,17 @@ public class WheelOfFortuneView extends JFrame {
 		return spin;
 	}
 	
-	public String getSaldo2() {
+/*	public String getSaldo2() {
 		return saldo2.getText();
-	}
+	}*/
 	
 	public void setSaldo2Text(String text) {
 		saldo2.setText(text);
 	}
 	
-	public String getBet2() {
+/*	public String getBet2() {
 		return bet2.getText();
-	}
+	}*/
 	
 	public void setBet2Text(String text) {
 		bet2.setText(text);
