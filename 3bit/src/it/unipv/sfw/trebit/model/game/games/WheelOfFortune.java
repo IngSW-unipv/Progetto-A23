@@ -12,6 +12,7 @@ public class WheelOfFortune implements IGames{
 	
 	public WheelOfFortune() {
 		coin=0;
+		result=new double[4];
 	}
 	
 	

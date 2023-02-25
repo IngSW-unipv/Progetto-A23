@@ -18,7 +18,7 @@ public class SlotMachineController {
 	private final SlotMachineView view;
 	private SlotMachine s;
 	private double outcome;
-	private double[] result= {};
+	private double[] result;
 	private double bet;
 	
 	
@@ -27,6 +27,7 @@ public class SlotMachineController {
 		this.conto = conto;
 		this.view = view;
 		
+		result=new double[4];
 		
 		//all'inizio sono nulli bet e outcome
 		bet=0;

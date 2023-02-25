@@ -26,6 +26,7 @@ public class WheelOfFortuneController {
 		this.conto = conto;
 		this.view = view;
 		
+		result=new double[4];
 		
 		//all'inizio sono nulli bet, outcome e symbol
 		bet=0;

@@ -10,7 +10,9 @@ public class SlotMachine implements IGames {
 	private double win;
 	private double coin;
 	
-	
+	public SlotMachine() {
+		result=new double[4];
+	}
 	
 	public double[] turn(int uselessVariable) {
 		

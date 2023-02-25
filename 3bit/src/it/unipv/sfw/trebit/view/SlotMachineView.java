@@ -1,11 +1,9 @@
-/*
 package it.unipv.sfw.trebit.view;
 
 import java.awt.*;
 import javax.swing.*;
 
 public class SlotMachineView extends JFrame {
-
 
 	private JLabel titolo;
 	private JLabel saldo1;
@@ -120,6 +118,7 @@ public class SlotMachineView extends JFrame {
 		
 		
 		
+		image = new Icon[5];
 		
 		image[0] = new ImageIcon(getClass().getResource("bell.png"));
 		image[1] = new ImageIcon(getClass().getResource("cherry.png"));
@@ -168,4 +167,4 @@ public class SlotMachineView extends JFrame {
 		box2.setIcon(image[(int) iconChose[2]]);
 		box3.setIcon(image[(int) iconChose[3]]);
 	}
-}*/
+}
