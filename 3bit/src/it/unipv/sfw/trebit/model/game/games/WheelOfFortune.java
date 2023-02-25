@@ -79,4 +79,8 @@ public class WheelOfFortune implements IGames{
 		return coin;
 		
 	}
+	
+	public double getBet() {
+		return coin;
+	}
 }

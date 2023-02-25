@@ -70,6 +70,10 @@ public class SlotMachine implements IGames {
 		
 		return coin;
 	}
+	
+	public double getBet() {
+		return coin;
+	}
 }
 	
 

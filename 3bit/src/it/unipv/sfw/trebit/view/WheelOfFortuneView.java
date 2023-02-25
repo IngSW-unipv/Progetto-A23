@@ -149,11 +149,7 @@ public class WheelOfFortuneView extends JFrame {
 	public JButton getButtonSpin() {
 		return spin;
 	}
-	
-/*	public String getSaldo2() {
-		return saldo2.getText();
-	}*/
-	
+
 	public void setSaldo2Text(String text) {
 		saldo2.setText(text);
 	}

@@ -145,9 +145,16 @@ public class WheelOfFortuneController {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//aggiunge un valore alla puntata
-				bet=w.addCoin();
-				view.setBet2Text(Double.toString(bet));
+				
+				//aumenta la puntata solo se il saldo è maggiore della puntata
+				if(conto.getSaldo() >= w.getBet()) {
+					
+					//aggiunge un valore alla puntata
+					bet=w.addCoin();
+				
+					//imposta la puntata modificata
+					view.setBet2Text(Double.toString(bet));
+				}
 				
 				
 			}

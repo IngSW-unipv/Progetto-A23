@@ -121,10 +121,16 @@ public class SlotMachineController {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//aggiunge un valore alla puntata
-				bet=s.addCoin();
-				view.setBet2Text(Double.toString(bet));
 				
+				//aumenta la puntata solo se il saldo è maggiore della puntata
+				if(conto.getSaldo() >= s.getBet()) {
+					
+					//aggiunge un valore alla puntata
+					bet=s.addCoin();
+				
+					//imposta la puntata modificata
+					view.setBet2Text(Double.toString(bet));
+				}
 				
 			}
 			
@@ -134,8 +140,11 @@ public class SlotMachineController {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				
 				//toglie un valore alla puntata
 				bet=s.subCoin();
+				
+				//imposta la puntata modificata
 				view.setBet2Text(Double.toString(bet));
 				
 				

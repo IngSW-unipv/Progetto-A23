@@ -131,12 +131,7 @@ public class SlotMachineView extends JFrame {
 	public JButton getButtonBackHome() {
 		return backHome;
 	}
-	
-	
-/*	public String getSaldo2() {
-		return saldo2.getText();
-	}*/
-	
+		
 	public void setSaldo2Text(String text) {
 		saldo2.setText(text);
 	}
