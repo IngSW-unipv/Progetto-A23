@@ -26,8 +26,11 @@ public class WheelOfFortuneController {
 		this.conto = conto;
 		this.view = view;
 		
+		
+		//all'inizio sono nulli bet, outcome e symbol
 		bet=0;
 		outcome=0;
+		symbol=0;
 		
 		
 		WheelOfFortune w=new WheelOfFortune();
@@ -38,6 +41,8 @@ public class WheelOfFortuneController {
 	
 	public void initView() {
 		
+		
+		//impostazioni all'apertura della view 
 		this.view.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.view.setSaldo2Text(Double.toString(conto.getSaldo()));
 		this.view.setBet2Text(Double.toString(bet));
@@ -66,7 +71,7 @@ public class WheelOfFortuneController {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				//imposta il simbolo scelto (1)
 				symbol=1;
 				
 			}
@@ -77,7 +82,7 @@ public class WheelOfFortuneController {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				//imposta il simbolo scelto (2)
 				symbol=2;
 				
 			}
@@ -88,7 +93,7 @@ public class WheelOfFortuneController {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				//imposta il simbolo scelto (3)
 				symbol=3;
 				
 			}
@@ -100,27 +105,38 @@ public class WheelOfFortuneController {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				//cosa succede se non si è impostato nessun symbol?????
 				
-				result=w.turn(symbol);
+				//verifica che la puntata sia diversa da zero e che si sia impostato un simbolo 
+				if(view.getBet2()!="0" && symbol!=0){
+					
+					//richiama metodo del model in cui si simula il gioco passando come argomento il simbolo scelto
+					result=w.turn(symbol);
 				
-				outcome=result[0];
-				
-				
-				if(outcome>0)
-					conto.deposita(outcome);
-				else
-					conto.preleva(outcome*(-1));
+					//result[0] è la vincita/perdita
+					outcome=result[0];
 				
 				
+					//metodi per modificare il conto con il risultato 
+					if(outcome>0)
+						conto.deposita(outcome);
+					else
+						conto.preleva(outcome*(-1));
 				
-				view.setWheel((int) result[1]);
-				view.setLastWinText(Double.toString(outcome));
 				
-				view.setSaldo2Text(Double.toString(conto.getSaldo()));
+					//imposta la gif (simulazione) del risultato
+					//result[1] è il valore int che rappresenta la gif da scegliere
+					view.setWheel((int) result[1]);
+					
+					//imposta l'ultima vincita/perdita
+					view.setLastWinText(Double.toString(outcome));
 				
-				bet=0;
-				view.setBet2Text(Double.toString(bet));
+					//imposta il saldo modificato
+					view.setSaldo2Text(Double.toString(conto.getSaldo()));
+				
+					//imposta la puntata a zero
+					bet=0;
+					view.setBet2Text(Double.toString(bet));
+				}
 			}
 			
 		});
@@ -129,6 +145,7 @@ public class WheelOfFortuneController {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				//aggiunge un valore alla puntata
 				bet=w.addCoin();
 				view.setBet2Text(Double.toString(bet));
 				
@@ -141,6 +158,7 @@ public class WheelOfFortuneController {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				//toglie un valore alla puntata
 				bet=w.subCoin();
 				view.setBet2Text(Double.toString(bet));
 				
