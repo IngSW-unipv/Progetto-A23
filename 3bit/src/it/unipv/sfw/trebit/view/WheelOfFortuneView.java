@@ -133,6 +133,7 @@ public class WheelOfFortuneView extends JFrame {
 	
 	public void setWheel(int gifChose) {
 			
+			//imposta la gif corrispondente
 			switch(gifChose) {
 				case 1:
 					wheel.setIcon(gif1);
@@ -157,9 +158,9 @@ public class WheelOfFortuneView extends JFrame {
 		saldo2.setText(text);
 	}
 	
-/*	public String getBet2() {
+	public String getBet2() {
 		return bet2.getText();
-	}*/
+	}
 	
 	public void setBet2Text(String text) {
 		bet2.setText(text);
