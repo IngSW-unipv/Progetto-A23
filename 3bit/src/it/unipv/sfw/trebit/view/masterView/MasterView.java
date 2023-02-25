@@ -11,16 +11,16 @@ public class MasterView {
 	private LoginView lview;
 	private RegistrationView rview;
 	private HomeView hview;
-	private SlotMachineView sview;
-	private WheelOfFortuneView wview;
+	//private SlotMachineView sview;
+	//private WheelOfFortuneView wview;
 	
 	private MasterView() {
 		
 		this.lview = new LoginView();
 		this.rview = new RegistrationView();
 		this.hview = new HomeView();
-		this.sview = new SlotMachineView();
-		this.wview = new WheelOfFortuneView();
+		//this.sview = new SlotMachineView();
+		//this.wview = new WheelOfFortuneView();
 		
 	}
 	
@@ -49,7 +49,7 @@ public class MasterView {
 		return this.hview;
 	}
 	
-	public SlotMachineView getSlotMachineView() {
+	/*public SlotMachineView getSlotMachineView() {
 		sview.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		sview.setVisible(true);
 		return this.sview;
@@ -59,5 +59,5 @@ public class MasterView {
 		wview.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		wview.setVisible(true);
 		return this.wview;
-	}
+	}*/
 }

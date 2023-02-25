@@ -33,9 +33,20 @@ public class UtenteDAO {
 			return log;
 		}	
 		
-		public void registrazione(Utente u) throws SQLException{
+		public boolean registrazione(Utente u) throws SQLException{
+			
 			conn = DBConn.startConnection(conn,schema);
-			String query = "INSERT INTO UTENTI VALUES(?,?)";
+			
+			String verifica = "SELECT PW FROM UTENTI WHERE USERNAME =?;";
+			PreparedStatement ver = conn.prepareStatement(verifica);
+			ver.setString(1, u.getUsername());
+			ResultSet result = ver.executeQuery();
+			boolean reg = false;
+			if(result.next()==false) {
+				reg = true;
+			}
+			
+			String query = "INSERT INTO UTENTI VALUES(?,?,?,?,?)";
 			PreparedStatement st1 = conn.prepareStatement(query);
 			st1.setString(1, u.getNome());
 			st1.setString(2,  u.getCognome());
@@ -44,5 +55,6 @@ public class UtenteDAO {
 			st1.setString(5, u.getPassword());
 			st1.executeUpdate();
 			DBConn.closeConnection(conn);
+			return reg;
 		}
 }

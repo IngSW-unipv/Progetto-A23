@@ -6,7 +6,6 @@ import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
 
-import it.unipv.sfw.trebit.controller.masterController.MasterController;
 import it.unipv.sfw.trebit.database.DBFacade;
 import it.unipv.sfw.trebit.model.Conto;
 import it.unipv.sfw.trebit.model.account.Utente;
@@ -17,7 +16,6 @@ public class RegistrationController {
 	
 	private final RegistrationView r;
 	private DBFacade facade = DBFacade.getInstance();
-	private MasterController mc = MasterController.getInstance();
 	private MasterView mv = MasterView.getInstance();
 	
 	private Conto c;
@@ -46,10 +44,17 @@ public class RegistrationController {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				r.dispose();
-				HomeView h = mv.getHomeView();
-				mc.getHomeController(c, h);
+				
 				}
+			}
+		});
+		
+		r.getButtonBack().addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				r.dispose();
+				mv.getLoginView();
 			}
 		});
 	}

@@ -1,6 +1,5 @@
 package it.unipv.sfw.trebit.controller;
 
-import it.unipv.sfw.trebit.controller.masterController.MasterController;
 import it.unipv.sfw.trebit.database.DBFacade;
 import it.unipv.sfw.trebit.model.Conto;
 import it.unipv.sfw.trebit.model.account.Utente;
@@ -20,7 +19,6 @@ public class LoginController {
 	
 	private final LoginView l;
 	private DBFacade facade = DBFacade.getInstance();
-	private MasterController mc = MasterController.getInstance();
 	private MasterView mv = MasterView.getInstance();
 	
 	private Conto c;
@@ -47,8 +45,8 @@ public class LoginController {
 					else{
 						//JOptionPane.showMessageDialog(l, "Accesso autorizzato", "Login", JOptionPane.INFORMATION_MESSAGE);
 						l.dispose();
-						HomeView h = mv.getHomeView();
-						mc.getHomeController(c, h);
+						
+						HomeController hc = new HomeController(c,mv.getHomeView());
 					}
 					
 				} catch (HeadlessException | SQLException e1) {
@@ -62,8 +60,7 @@ public class LoginController {
 			public void actionPerformed(ActionEvent e) {
 				//JOptionPane.showMessageDialog(l, "WorkInProgress", "Registrazione", JOptionPane.INFORMATION_MESSAGE);
 				l.dispose();
-				RegistrationView r = mv.getRegistrationView();
-				mc.getRegistrationController(r);
+				RegistrationController rc = new RegistrationController(mv.getRegistrationView());
 			}
 		});
 	}

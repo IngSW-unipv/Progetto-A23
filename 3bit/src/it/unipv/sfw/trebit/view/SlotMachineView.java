@@ -1,3 +1,4 @@
+/*
 package it.unipv.sfw.trebit.view;
 
 import java.awt.*;
@@ -167,4 +168,4 @@ public class SlotMachineView extends JFrame {
 		box2.setIcon(image[(int) iconChose[2]]);
 		box3.setIcon(image[(int) iconChose[3]]);
 	}
-}
+}*/
