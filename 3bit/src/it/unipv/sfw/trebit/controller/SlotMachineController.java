@@ -14,8 +14,8 @@ import it.unipv.sfw.trebit.model.game.games.SlotMachine;
 
 public class SlotMachineController {
 	
-	private Conto conto;
-	private SlotMachineView view;
+	private final Conto conto;
+	private final SlotMachineView view;
 	private SlotMachine s;
 	private double outcome;
 	private double[] result= {};
@@ -27,6 +27,8 @@ public class SlotMachineController {
 		this.conto = conto;
 		this.view = view;
 		
+		
+		//all'inizio sono nulli bet e outcome
 		bet=0;
 		outcome=0;
 		
@@ -41,6 +43,7 @@ public class SlotMachineController {
 	
 	public void initView() {
 		
+		//impostazioni all'apertura della view 
 		this.view.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.view.setSaldo2Text(Double.toString(conto.getSaldo()));
 		this.view.setBet2Text(Double.toString(bet));
@@ -74,28 +77,40 @@ public class SlotMachineController {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				//serve perchè se no non segue l'interfaccia IGame
-				int uselessVariable=0;
-				result=s.turn(uselessVariable);
+				//verifica che la puntata sia diversa da zero
+				if(view.getBet2() != "0"){
+					
+					//serve perchè se no non segue l'interfaccia IGame
+					int uselessVariable=0;
+					
+					//richiama metodo del model in cui si simula il gioco
+					result=s.turn(uselessVariable);
 				
-				outcome=result[0];
+					//result[0] è la vincita/perdita
+					outcome=result[0];
 				
-				
-				if(outcome>0)
-					conto.deposita(outcome);
-				else
-					conto.preleva(outcome*(-1));
-				
-				
-				view.setBoxes(result);
-				view.setLastWinText(Double.toString(outcome));
-				
-				view.setSaldo2Text(Double.toString(conto.getSaldo()));
-				
-				bet=0;
-				view.setBet2Text(Double.toString(bet));
+					//metodi per modificare il conto con il risultato 
+					if(outcome>0)
+						conto.deposita(outcome);
+					else
+						conto.preleva(outcome*(-1));
 				
 				
+					//imposta le immagini del risultato nei box 
+					//result[1,2,3] sono i valori int dellimmagine da scegliere per ogni box
+					view.setBoxes(result);
+					
+					//imposta l'ultima vincita/perdita
+					view.setLastWinText(Double.toString(outcome));
+				
+					//imposta il saldo modificato
+					view.setSaldo2Text(Double.toString(conto.getSaldo()));
+				
+					//imposta la puntata a zero
+					bet=0;
+					view.setBet2Text(Double.toString(bet));
+				
+				}
 			}
 			
 		});
@@ -106,6 +121,7 @@ public class SlotMachineController {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				//aggiunge un valore alla puntata
 				bet=s.addCoin();
 				view.setBet2Text(Double.toString(bet));
 				
@@ -118,6 +134,7 @@ public class SlotMachineController {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				//toglie un valore alla puntata
 				bet=s.subCoin();
 				view.setBet2Text(Double.toString(bet));
 				

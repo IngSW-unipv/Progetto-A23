@@ -5,17 +5,7 @@ import javax.swing.*;
 
 public class SlotMachineView extends JFrame {
 
-/*	private JButton spinBtn;
-	private JButton addCoinBtn;
-	private JButton betOneBtn;
-	private JButton resetBtn;
-	private JLabel title;
-	private JLabel creditArea;
-	private JLabel betArea;
-	private JLabel creditAreaTitle;
-	private JLabel betAreaTitle;
-	private JLabel reel1, reel2, reel3;*/
-	
+
 	private JLabel titolo;
 	private JLabel saldo1;
 	private JLabel saldo2;
@@ -35,13 +25,16 @@ public class SlotMachineView extends JFrame {
 	
 	public SlotMachineView() {
 		
-		getContentPane().setLayout(new BorderLayout());
 		setSize(400, 300);
 		setTitle("Slot-Machine");
+		getContentPane().setLayout(null);
 
 		
+		
+		
 		JPanel northPanel = new JPanel();
-		getContentPane().add(northPanel, BorderLayout.NORTH);
+		northPanel.setBounds(0, 0, 400, 35);
+		getContentPane().add(northPanel);
 		
 		titolo = new JLabel("Seleziona la tua puntata e vinci!");
 		northPanel.add(titolo);
@@ -51,59 +44,80 @@ public class SlotMachineView extends JFrame {
 		northPanel.add(backHome);
 		
 		
+		
+		
 		JPanel eastPanel = new JPanel();
-		eastPanel.setLayout(new GridLayout(3, 2));
-		getContentPane().add(eastPanel, BorderLayout.EAST);
+		eastPanel.setBounds(208, 35, 192, 203);
+		getContentPane().add(eastPanel);
+		eastPanel.setLayout(null);
 		
 		saldo1 = new JLabel("Il tuo saldo: €");
+		saldo1.setBounds(0, 1, 96, 67);
 		eastPanel.add(saldo1);
 		
 		saldo2 = new JLabel();
+		saldo2.setBounds(96, 1, 96, 67);
 		eastPanel.add(saldo2);
 		
 		bet1 = new JLabel("Bet");
+		bet1.setBounds(0, 68, 96, 67);
 		eastPanel.add(bet1);
 		
 		bet2 = new JLabel("0");
+		bet2.setBounds(96, 68, 96, 67);
 		eastPanel.add(bet2);
 		
 		addCoin = new JButton("Coin ++");
+		addCoin.setBounds(0, 135, 96, 67);
 		addCoin.setActionCommand("addCoin");
 		eastPanel.add(addCoin);
 		
 		subCoin = new JButton("Coin --");
+		subCoin.setBounds(96, 135, 96, 67);
 		subCoin.setActionCommand("subCoin");
 		eastPanel.add(subCoin);
 		
+		
+		
+		
 		JPanel southPanel = new JPanel();
-		getContentPane().add(southPanel, BorderLayout.SOUTH);
+		southPanel.setBounds(0, 238, 400, 25);
+		getContentPane().add(southPanel);
 		
 		lastWin = new JLabel("Last Win: ");
 		southPanel.add(lastWin);
 		
 		
-		JPanel westPanel = new JPanel();
-		westPanel.setLayout(new GridLayout(4, 1));
-		getContentPane().add(westPanel, BorderLayout.WEST);
 		
-	//	Icon image1 = new ImageIcon(getClass().getResource("cherry.png"));
+		
+		JPanel westNorthPanel = new JPanel();
+		westNorthPanel.setBounds(0, 35, 209, 116);
+		westNorthPanel.setLayout(new GridLayout(1, 3));
+		getContentPane().add(westNorthPanel);
+	
 		box1 = new JLabel();
-		westPanel.add(box1);
+		westNorthPanel.add(box1);
 		
-	//	Icon image2 = new ImageIcon(getClass().getResource("bell.png"));
-		
-	//	Icon image3 = new ImageIcon(getClass().getResource("lemon.png"));
 		box2 = new JLabel();
-		westPanel.add(box2);
+		westNorthPanel.add(box2);
 		
 		box3 = new JLabel();
-		westPanel.add(box3);
+		westNorthPanel.add(box3);
+				
 		
 		
+		
+		JPanel westSouthPanel = new JPanel();
+		westSouthPanel.setBounds(0, 150, 209, 83);
+		getContentPane().add(westSouthPanel);
+		westSouthPanel.setLayout(null);
 		
 		spin = new JButton("SPIN");
+		spin.setBounds(0, 22, 209, 61);
 		spin.setActionCommand("SPIN");
-		westPanel.add(spin);
+		westSouthPanel.add(spin);
+		
+		
 		
 		
 		image[0] = new ImageIcon(getClass().getResource("bell.png"));
@@ -127,9 +141,9 @@ public class SlotMachineView extends JFrame {
 		saldo2.setText(text);
 	}
 	
-/*	public String getBet2() {
+	public String getBet2() {
 		return bet2.getText();
-	}*/
+	}
 	
 	public void setBet2Text(String text) {
 		bet2.setText(text);
@@ -152,12 +166,10 @@ public class SlotMachineView extends JFrame {
 	}
 	
 	public void setBoxes(double[] iconChose) {
+		//iconChose[1,2,3] sono i valori int dellimmagine da scegliere per ogni box 
+		//le immagini sono salvate in ordine numerico (il valore int rappresenta proprio quale immagine dell'ordine si prende)
 		box1.setIcon(image[(int) iconChose[1]]);
 		box2.setIcon(image[(int) iconChose[2]]);
 		box3.setIcon(image[(int) iconChose[3]]);
 	}
-
-	
-	
-	
 }
