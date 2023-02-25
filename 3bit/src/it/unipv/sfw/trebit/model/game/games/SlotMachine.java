@@ -11,13 +11,15 @@ public class SlotMachine implements IGames {
 	private double coin;
 	
 	
+	
 	public double[] turn(int uselessVariable) {
 		
+		//istanza del moltiplicatore e chiamata al metodo che restituisce il moltiplicatore
 		MultiplierContext m=MultiplierContext.getInstance();
 		multiplier=m.getMultiplier();
 		
 		
-		// variabile inizializzata a 0 ogni volta che si inizia un turno
+		// variabile inizializzata a 0 ogni volta che si inizia un turno (rappresenta la vincita/perdita)
 		result[0]=0;		
 		
 		
@@ -30,11 +32,10 @@ public class SlotMachine implements IGames {
 		//victoryCase è il metodo del caso di vittoria (restituisce 0 se si perde)
 		win=victoryCase(numCasual);
 		
-		
-		
-		
-		
+		//formula calcolo vincita/perdita
 		result[0]=win*multiplier*coin-coin;
+		
+		//puntata che viene impostata a zero ogni volta che finisce un turno
 		coin=0;
 		
 		return result;
@@ -45,6 +46,8 @@ public class SlotMachine implements IGames {
 	
 	//caso vittoria:	3 simboli uguali sulla stessa riga 
 	public int victoryCase(int[] num) {
+		
+		//se le tre immagini (i valori casuali generati) sono uguali si vince se no si perde
 		if(num[0]==num[1] && num[1]==num[2])
 			return 5;
 		else
@@ -53,6 +56,8 @@ public class SlotMachine implements IGames {
 	
 
 	public double subCoin() {
+		
+		//se la puntata è maggiore di zero si può abbassare di un valore
 		if(coin>0)
 			coin--;
 		
@@ -60,6 +65,7 @@ public class SlotMachine implements IGames {
 	}
 	
 	public double addCoin() {
+		//aumenta di un valore la puntata
 		coin++;
 		
 		return coin;
