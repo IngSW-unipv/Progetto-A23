@@ -8,8 +8,7 @@ import javax.swing.*;
 import it.unipv.sfw.trebit.exception.YouCantChooseTheGame;
 import it.unipv.sfw.trebit.model.Conto;
 import it.unipv.sfw.trebit.view.HomeView;
-//import it.unipv.sfw.trebit.view.SlotMachineView;
-//import it.unipv.sfw.trebit.view.WheelOfFortuneView;
+import it.unipv.sfw.trebit.view.masterView.*;
 
 public class HomeController {
 	
@@ -27,9 +26,7 @@ public class HomeController {
 	
 	public void initView() {
 
-		this.homeView.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.homeView.setSaldoText(Double.toString(conto.getSaldo()));
-		this.homeView.setVisible(true);
 
 	}
 		
@@ -84,8 +81,8 @@ public class HomeController {
 
 					checkSaldo();
 
-					//SlotMachineController smc = MasterController.getInstance().getSlotMachineController();
-					//smc.initView();
+					SlotMachineController smc = new SlotMachineController(conto, MasterView.getInstance().getSlotMachineView());
+					smc.initView();
 					
 					homeView.setVisible(false);
 
@@ -107,8 +104,8 @@ public class HomeController {
 					
 					checkSaldo();
 					
-					//WheelOfFortuneController wfc = MasterController.getInstance().getWheelOfFortuneController();
-					//wfc.initView();
+					WheelOfFortuneController wfc = new WheelOfFortuneController(conto, MasterView.getInstance().getWheelOfFortuneView());
+					wfc.initView();
 					
 					homeView.setVisible(false);
 					

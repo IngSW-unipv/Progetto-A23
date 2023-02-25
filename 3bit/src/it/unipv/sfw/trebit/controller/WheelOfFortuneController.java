@@ -44,11 +44,9 @@ public class WheelOfFortuneController {
 		
 		
 		//impostazioni all'apertura della view 
-		this.view.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.view.setSaldo2Text(Double.toString(conto.getSaldo()));
 		this.view.setBet2Text(Double.toString(bet));
 		this.view.setLastWinText(Double.toString(outcome));
-		this.view.setVisible(true);
 		
 	}
 		
