@@ -14,7 +14,6 @@ public class UtenteDAO {
 		private String schema = "ESAMEPO";
 		
 		public UtenteDAO() {
-			super();
 		}
 		
 		public boolean login(Utente u) throws SQLException {

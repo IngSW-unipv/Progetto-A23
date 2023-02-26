@@ -2,11 +2,14 @@ package it.unipv.sfw.trebit.model;
 
 public class Conto {
 
+	private String username;
 	private double saldo;
+	
 
-	public Conto(double s) {
+	public Conto(String username, double saldo) {
 
-		this.saldo = s;
+		this.saldo = saldo;
+		this.setUsername(username);
 
 	}
 
@@ -50,6 +53,14 @@ public class Conto {
 
 		return this.saldo;
 
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 }
