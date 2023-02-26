@@ -39,12 +39,17 @@ public class RegistrationController {
 										r.getStringUsername(),
 										r.getStringCpassword());
 				try {
-					facade.registrati(u);
+					if(facade.registrazione(u)) {
+						r.dispose();
+						mv.getHomeView();
+					}
+					else {
+						JOptionPane.showMessageDialog(r, "Questo utente è già registrato", "Registrati", JOptionPane.INFORMATION_MESSAGE);
+					}
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				
 				}
 			}
 		});

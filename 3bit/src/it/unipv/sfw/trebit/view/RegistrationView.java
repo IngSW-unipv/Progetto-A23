@@ -87,10 +87,10 @@ public class RegistrationView extends JFrame {
 	}
 	
 	public String getStringNome() {
-		return nome.getText();
+		return nom.getText();
 	}
 	public String getStringCognome() {
-		return cognome.getText();
+		return cognom.getText();
 	}
 
 	public String getStringUsername() {

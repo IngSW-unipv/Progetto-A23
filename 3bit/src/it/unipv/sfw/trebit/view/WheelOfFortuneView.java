@@ -109,9 +109,9 @@ public class WheelOfFortuneView extends JFrame {
 		img3.setActionCommand("img3");
 		westPanel.add(img3);
 		
-		Icon gif1 = new ImageIcon(getClass().getResource("wheelGif1.png"));
-		Icon gif2 = new ImageIcon(getClass().getResource("wheelGif2.png"));
-		Icon gif3 = new ImageIcon(getClass().getResource("wheelGif3.png"));
+		//Icon gif1 = new ImageIcon(getClass().getResource("wheelGif1.png"));
+		//Icon gif2 = new ImageIcon(getClass().getResource("wheelGif2.png"));
+		//Icon gif3 = new ImageIcon(getClass().getResource("wheelGif3.png"));
 		
 	}
 	

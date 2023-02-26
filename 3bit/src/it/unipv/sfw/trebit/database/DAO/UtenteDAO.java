@@ -11,7 +11,7 @@ import it.unipv.sfw.trebit.model.account.Utente;
 public class UtenteDAO {
 
 		private Connection conn;
-		private String schema = "prova";
+		private String schema = "ESAMEPO";
 		
 		public UtenteDAO() {
 			super();
@@ -46,14 +46,20 @@ public class UtenteDAO {
 				reg = true;
 			}
 			
-			String query = "INSERT INTO UTENTI VALUES(?,?,?,?,?)";
-			PreparedStatement st1 = conn.prepareStatement(query);
+			String query1 = "INSERT INTO UTENTI VALUES(?,?,?,?,?);";
+			String query2 = "INSERT INTO CONTO VALUES(?,?)";
+							
+			PreparedStatement st1 = conn.prepareStatement(query1);
 			st1.setString(1, u.getNome());
 			st1.setString(2,  u.getCognome());
 			st1.setString(3, u.getUsername());
 			st1.setInt(4, 1);
 			st1.setString(5, u.getPassword());
 			st1.executeUpdate();
+			PreparedStatement st2 = conn.prepareStatement(query2);
+			st2.setString(1, u.getUsername());
+			st2.setInt(2,0);
+			st2.executeUpdate();
 			DBConn.closeConnection(conn);
 			return reg;
 		}

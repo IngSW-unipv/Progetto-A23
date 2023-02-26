@@ -25,7 +25,7 @@ public class DBFacade {
 		return utenteDAO.login(u);
 	}
 	
-	public void registrati(Utente u) throws SQLException {
-		utenteDAO.registrazione(u);
+	public boolean registrazione(Utente u) throws SQLException {
+		return utenteDAO.registrazione(u);
 	}
 }
