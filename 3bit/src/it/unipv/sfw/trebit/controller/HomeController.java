@@ -2,11 +2,14 @@ package it.unipv.sfw.trebit.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 import javax.swing.*;
 
+import it.unipv.sfw.trebit.database.DBFacade;
 import it.unipv.sfw.trebit.exception.YouCantChooseTheGame;
 import it.unipv.sfw.trebit.model.Conto;
+import it.unipv.sfw.trebit.model.account.Utente;
 import it.unipv.sfw.trebit.view.HomeView;
 import it.unipv.sfw.trebit.view.masterView.*;
 
@@ -15,19 +18,20 @@ public class HomeController {
 	private Conto conto;
 	private final HomeView homeView;
 	private MasterView mv = MasterView.getInstance();
+	private DBFacade facade = DBFacade.getInstance();
 	
 	public HomeController(Conto conto, HomeView homeView) {
 		
 		this.conto = conto;
 		this.homeView = homeView;
-				
+		
 		setListeners();
 		
 	}
 	
-	public void initView() {
+	public void initView(Utente u) throws SQLException {
 
-		this.homeView.setSaldoText(Double.toString(conto.getSaldo()));
+		this.homeView.setSaldoText(Double.toString(facade.getSaldoByUsername(u)));
 
 	}
 		

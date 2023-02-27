@@ -19,7 +19,7 @@ public class ContoDAO {
 		
 		double saldo;
 		
-		String query = "SELECT SALDO WHERE USERNAME = ?;";
+		String query = "SELECT SALDO FROM CONTO WHERE USERNAME = ?;";
 		PreparedStatement st1 = conn.prepareStatement(query);
 		st1.setString(1, u.getUsername());
 		ResultSet result = st1.executeQuery();

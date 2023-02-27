@@ -47,6 +47,7 @@ public class LoginController {
 						l.dispose();
 						Conto c = facade.getContoByUsername(u);
 						HomeController hc = new HomeController(c, mv.getHomeView());
+						hc.initView(u);
 					}
 					
 				} catch (HeadlessException | SQLException e1) {
