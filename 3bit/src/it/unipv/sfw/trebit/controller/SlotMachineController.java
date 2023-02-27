@@ -16,7 +16,7 @@ public class SlotMachineController {
 	
 	private final Conto conto;
 	private final SlotMachineView view;
-	private SlotMachine s;
+	private SlotMachine s=new SlotMachine();
 	private double outcome;
 	private double[] result;
 	private double bet;
@@ -34,7 +34,6 @@ public class SlotMachineController {
 		outcome=0;
 		
 		
-		SlotMachine w=new SlotMachine();
 		
 		setListeners();
 		
@@ -120,9 +119,9 @@ public class SlotMachineController {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+					
 				//aumenta la puntata solo se il saldo è maggiore della puntata
-				if(conto.getSaldo() >= s.getBet()) {
+				if(conto.getSaldo() > s.getBet()) {
 					
 					//aggiunge un valore alla puntata
 					bet=s.addCoin();

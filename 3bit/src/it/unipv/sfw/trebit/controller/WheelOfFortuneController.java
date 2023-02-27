@@ -14,7 +14,7 @@ public class WheelOfFortuneController {
 	
 	private Conto conto;
 	private WheelOfFortuneView view;
-	private WheelOfFortune w;
+	private WheelOfFortune w=new WheelOfFortune();;
 	private int symbol;
 	double[] result= {};
 	private double outcome;
@@ -32,9 +32,6 @@ public class WheelOfFortuneController {
 		bet=0;
 		outcome=0;
 		symbol=0;
-		
-		
-		WheelOfFortune w=new WheelOfFortune();
 		
 		setListeners();
 		
@@ -146,7 +143,7 @@ public class WheelOfFortuneController {
 			public void actionPerformed(ActionEvent e) {
 				
 				//aumenta la puntata solo se il saldo è maggiore della puntata
-				if(conto.getSaldo() >= w.getBet()) {
+				if(conto.getSaldo() > w.getBet()) {
 					
 					//aggiunge un valore alla puntata
 					bet=w.addCoin();

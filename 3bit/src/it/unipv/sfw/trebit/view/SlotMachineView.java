@@ -19,7 +19,7 @@ public class SlotMachineView extends JFrame {
 	private JLabel box2;
 	private JLabel box3;
 	
-	private Icon[] image;
+	private ImageIcon[] image;
 
 	
 	public SlotMachineView() {
@@ -118,7 +118,7 @@ public class SlotMachineView extends JFrame {
 		
 		
 		
-		image = new Icon[5];
+		image = new ImageIcon[5];
 		
 		image[0] = new ImageIcon(getClass().getResource("bell.png"));
 		image[1] = new ImageIcon(getClass().getResource("cherry.png"));

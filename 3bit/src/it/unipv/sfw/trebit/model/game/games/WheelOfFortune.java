@@ -9,6 +9,7 @@ public class WheelOfFortune implements IGames{
 	private double coin;
 	private double win;
 	private double multiplier;
+	private MultiplierContext m=MultiplierContext.getInstance();
 	
 	public WheelOfFortune() {
 		coin=0;
@@ -18,8 +19,8 @@ public class WheelOfFortune implements IGames{
 	
 	public double[] turn(int chosenSymbol) {
 		
-		//istanza del moltiplicatore e chiamata al metodo che restituisce il moltiplicatore
-		MultiplierContext m=MultiplierContext.getInstance();		
+		//chiamata al metodo che restituisce il moltiplicatore
+				
 		multiplier=m.getMultiplier();
 		
 		//generazione casuale dello spostamento (rispetto al punto iniziale)
@@ -34,6 +35,7 @@ public class WheelOfFortune implements IGames{
 		
 		//puntata che viene impostata a zero ogni volta che finisce un turno
 		coin=0;
+		
 		return result;
 		
 	}

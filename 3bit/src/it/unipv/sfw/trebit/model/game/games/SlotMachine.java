@@ -9,15 +9,18 @@ public class SlotMachine implements IGames {
 	private double multiplier;
 	private double win;
 	private double coin;
+	private MultiplierContext m=MultiplierContext.getInstance();
 	
 	public SlotMachine() {
 		result=new double[4];
+		numCasual=new int[3];
+		
+		coin=0;
 	}
 	
 	public double[] turn(int uselessVariable) {
 		
-		//istanza del moltiplicatore e chiamata al metodo che restituisce il moltiplicatore
-		MultiplierContext m=MultiplierContext.getInstance();
+		//chiamata al metodo che restituisce il moltiplicatore
 		multiplier=m.getMultiplier();
 		
 		

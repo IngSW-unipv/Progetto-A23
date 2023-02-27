@@ -19,9 +19,13 @@ public class WheelOfFortuneView extends JFrame {
 	private JButton img2;
 	private JButton img3;
 	private JButton backHome;
-	private Icon gif1;
-	private Icon gif2;
-	private Icon gif3;
+	//private Icon gif1;
+	//private Icon gif2;
+	//private Icon gif3;
+	
+	private Icon gif1 = new ImageIcon(getClass().getResource("wheelGif1.gif"));
+	private Icon gif2 = new ImageIcon(getClass().getResource("wheelGif2.gif"));
+	private Icon gif3 = new ImageIcon(getClass().getResource("wheelGif3.gif"));
 
 	public WheelOfFortuneView() {
 		
@@ -109,9 +113,9 @@ public class WheelOfFortuneView extends JFrame {
 		img3.setActionCommand("img3");
 		westPanel.add(img3);
 		
-		Icon gif1 = new ImageIcon(getClass().getResource("wheelGif1.gif"));
-		Icon gif2 = new ImageIcon(getClass().getResource("wheelGif2.gif"));
-		Icon gif3 = new ImageIcon(getClass().getResource("wheelGif3.gif"));
+	//	Icon gif1 = new ImageIcon(getClass().getResource("wheelGif1.gif"));
+	//	Icon gif2 = new ImageIcon(getClass().getResource("wheelGif2.gif"));
+	//	Icon gif3 = new ImageIcon(getClass().getResource("wheelGif3.gif"));
 		
 	}
 	
