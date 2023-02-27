@@ -12,8 +12,9 @@ import it.unipv.sfw.trebit.view.masterView.*;
 
 public class HomeController {
 	
-	private final Conto conto;
+	private Conto conto;
 	private final HomeView homeView;
+	private MasterView mv = MasterView.getInstance();
 	
 	public HomeController(Conto conto, HomeView homeView) {
 		
@@ -83,7 +84,7 @@ public class HomeController {
 					
 					homeView.dispose();
 
-					SlotMachineController smc = new SlotMachineController(conto, MasterView.getInstance().getSlotMachineView());
+					SlotMachineController smc = new SlotMachineController(conto, mv.getSlotMachineView());
 					smc.initView();
 
 				} catch (YouCantChooseTheGame e1) {
@@ -106,7 +107,7 @@ public class HomeController {
 					
 					homeView.dispose();
 					
-					WheelOfFortuneController wfc = new WheelOfFortuneController(conto, MasterView.getInstance().getWheelOfFortuneView());
+					WheelOfFortuneController wfc = new WheelOfFortuneController(conto, mv.getWheelOfFortuneView());
 					wfc.initView();
 					
 				} catch (YouCantChooseTheGame e1) {
