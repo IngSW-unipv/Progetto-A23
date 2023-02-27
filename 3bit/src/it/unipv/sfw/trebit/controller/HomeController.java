@@ -86,7 +86,7 @@ public class HomeController {
 				
 				try {
 
-					checkSaldo();
+					checkSaldo(conto);
 					
 					homeView.dispose();
 
@@ -94,6 +94,9 @@ public class HomeController {
 					smc.initView();
 
 				} catch (YouCantChooseTheGame e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
@@ -109,14 +112,16 @@ public class HomeController {
 				
 				try {
 					
-					checkSaldo();
-					
+					checkSaldo(conto);
 					homeView.dispose();
 					
 					WheelOfFortuneController wfc = new WheelOfFortuneController(conto, mv.getWheelOfFortuneView());
 					wfc.initView();
 					
 				} catch (YouCantChooseTheGame e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
@@ -127,9 +132,9 @@ public class HomeController {
 		
 	}
 	
-	private void checkSaldo() throws YouCantChooseTheGame {
+	private void checkSaldo(Conto conto) throws YouCantChooseTheGame, SQLException {
 		
-		if(conto.getSaldo() == 0) {
+		if(facade.getSaldoByConto(conto) == 0) {
 			throw new YouCantChooseTheGame(homeView);
 		}
 		
