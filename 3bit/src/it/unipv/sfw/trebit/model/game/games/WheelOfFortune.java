@@ -25,7 +25,7 @@ public class WheelOfFortune implements IGames{
 		
 		//generazione casuale dello spostamento (rispetto al punto iniziale)
 		numCasual=(int) Math.random()*11;				//*11 simboli nella sequenza --> <0.0;1.0> * 11 genera lo spostamento
-		result[1]=numCasual;
+		result[1]=(double) numCasual;
 		
 		//victoryCase è il metodo del caso di vittoria (restituisce 0 se si perde)
 		win=victoryCase(numCasual, chosenSymbol);

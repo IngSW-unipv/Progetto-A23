@@ -31,7 +31,7 @@ public class SlotMachine implements IGames {
 		//generazione casuale spostamento di ogni colonna (tutti rispetto al punto iniziale)
 		for(int i=0;i<3;i++) {
 			numCasual[i]=(int) Math.random()*5;			//*5 simboli --> <0.0;1.0> * 5 genera lo spostamento
-			result[i+1]=numCasual[i];
+			result[i+1]=(double) numCasual[i];
 		}
 		
 		//victoryCase è il metodo del caso di vittoria (restituisce 0 se si perde)
