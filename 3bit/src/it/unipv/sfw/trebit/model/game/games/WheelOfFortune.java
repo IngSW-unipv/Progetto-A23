@@ -5,7 +5,7 @@ import it.unipv.sfw.trebit.model.game.multiplier.MultiplierContext;
 public class WheelOfFortune implements IGames{
 	
 	private int numCasual;
-	private double[] result= {};
+	private double[] result;
 	private double coin;
 	private double win;
 	private double multiplier;
