@@ -45,8 +45,8 @@ public class LoginController {
 					else{
 						//JOptionPane.showMessageDialog(l, "Accesso autorizzato", "Login", JOptionPane.INFORMATION_MESSAGE);
 						l.dispose();
-						
-						HomeController hc = new HomeController(c,mv.getHomeView());
+						Conto c = facade.getContoByUsername(u);
+						HomeController hc = new HomeController(c, mv.getHomeView());
 					}
 					
 				} catch (HeadlessException | SQLException e1) {

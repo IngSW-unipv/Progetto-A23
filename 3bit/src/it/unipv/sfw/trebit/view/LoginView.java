@@ -51,19 +51,19 @@ public class LoginView extends JFrame {
 		password = new JPasswordField();
 		centerPanel.add(password);
 		password.setColumns(10);
-		
+
 		
 		
 		JPanel southPanel = new JPanel();
 		add(southPanel, BorderLayout.SOUTH);
 		
-		signIn = new JButton("Sign In");
-		signIn.setActionCommand("signIn");
-		southPanel.add(signIn);
-		
 		signUp = new JButton("Sign Up");
 		signUp.setActionCommand("signUp");
 		southPanel.add(signUp);
+		
+		signIn = new JButton("Sign In");
+		signIn.setActionCommand("signIn");
+		southPanel.add(signIn);
 		
 	}
 	

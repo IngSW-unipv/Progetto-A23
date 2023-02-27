@@ -31,13 +31,15 @@ public class RegistrationController {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if(!r.getStringCpassword().equals(r.getStringPassword())) {
-					JOptionPane.showMessageDialog(r, "Le password non sono uguali", "Registrati", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(r, "Le password non coincidono", "Registrati", JOptionPane.INFORMATION_MESSAGE);
 				}
 				else {
+					
 				Utente u = new Utente(r.getStringNome(),
 										r.getStringCognome(),
 										r.getStringUsername(),
 										r.getStringCpassword());
+				
 				try {
 					if(facade.registrazione(u)) {
 						r.dispose();
