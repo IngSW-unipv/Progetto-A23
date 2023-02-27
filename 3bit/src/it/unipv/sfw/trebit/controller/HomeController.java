@@ -43,8 +43,12 @@ public class HomeController {
 			public void actionPerformed(ActionEvent e) {
 				
 					try {
+						
 						facade.deposita(conto, Double.parseDouble(homeView.getAmountText()));
+						
 						homeView.setSaldoText(Double.toString(facade.getSaldoByConto(conto)));
+						homeView.setAmountText();
+						
 					} catch(NumberFormatException exception) {
 						homeView.popUp("ERRORE! Inserire un numero positivo e riprovare");
 					} 
@@ -65,7 +69,9 @@ public class HomeController {
 				try {
 					
 					facade.preleva(conto, Double.parseDouble(homeView.getAmountText()));
+					
 					homeView.setSaldoText(Double.toString(facade.getSaldoByConto(conto)));
+					homeView.setAmountText();
 					
 				} catch(NumberFormatException exception) {
 					homeView.popUp("ERRORE! Inserire un numero positivo e riprovare");

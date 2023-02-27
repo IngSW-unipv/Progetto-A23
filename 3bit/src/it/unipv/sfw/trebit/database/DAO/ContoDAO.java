@@ -52,7 +52,7 @@ public class ContoDAO {
 		
 		boolean v;
 		
-		if(amount  < 0 || amount > c.getSaldo()) {
+		if(c.getSaldo() == 0 || amount  < 0 || amount > c.getSaldo()) {
 			v = false;
 			return v;
 		}
