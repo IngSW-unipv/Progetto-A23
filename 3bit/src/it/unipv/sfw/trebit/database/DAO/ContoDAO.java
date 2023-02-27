@@ -49,6 +49,14 @@ public class ContoDAO {
 	}
 	
 	public boolean preleva(Conto c, double amount) throws SQLException {
+		
+		boolean v;
+		
+		if(amount  < 0 || amount > c.getSaldo()) {
+			v = false;
+			return v;
+		}
+		
 		conn = DBConn.startConnection(conn, schema);
 		
 		String query = "UPDATE CONTO SET SALDO = SALDO - ? WHERE USERNAME = ?;";
@@ -56,10 +64,18 @@ public class ContoDAO {
 		st1.setDouble(1, amount);
 		st1.setString(2, c.getUsername());
 		st1.executeUpdate();
-		return true;
+		v = true;
+		return v;
 	}
 	
 	public boolean deposita(Conto c, double amount) throws SQLException {
+		
+		boolean v;
+		if (amount < 0) {
+			v = false;
+			return v;
+		}
+		
 		conn = DBConn.startConnection(conn, schema);
 		
 		String query = "UPDATE CONTO SET SALDO = SALDO + ? WHERE USERNAME = ?;";
@@ -67,7 +83,9 @@ public class ContoDAO {
 		st1.setDouble(1, amount);
 		st1.setString(2, c.getUsername());
 		st1.executeUpdate();
-		return true;
+		
+		v = true;
+		return v;
 	}
 	
 	public Conto getContoByUtente(Utente u) throws SQLException {
