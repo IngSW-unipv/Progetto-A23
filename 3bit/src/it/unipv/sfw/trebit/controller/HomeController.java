@@ -80,11 +80,11 @@ public class HomeController {
 				try {
 
 					checkSaldo();
+					
+					homeView.dispose();
 
 					SlotMachineController smc = new SlotMachineController(conto, MasterView.getInstance().getSlotMachineView());
 					smc.initView();
-					
-					homeView.setVisible(false);
 
 				} catch (YouCantChooseTheGame e1) {
 					// TODO Auto-generated catch block
@@ -104,10 +104,10 @@ public class HomeController {
 					
 					checkSaldo();
 					
+					homeView.dispose();
+					
 					WheelOfFortuneController wfc = new WheelOfFortuneController(conto, MasterView.getInstance().getWheelOfFortuneView());
 					wfc.initView();
-					
-					homeView.setVisible(false);
 					
 				} catch (YouCantChooseTheGame e1) {
 					// TODO Auto-generated catch block
