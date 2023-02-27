@@ -16,7 +16,6 @@ public class ContoDAO {
 	
 	public double getSaldoByUsername(Utente u) throws SQLException {
 		conn = DBConn.startConnection(conn,schema);
-		
 		double saldo;
 		
 		String query = "SELECT SALDO FROM CONTO WHERE USERNAME = ?;";
@@ -32,23 +31,42 @@ public class ContoDAO {
 		return saldo;
 	}
 	
-	public boolean preleva(Utente u, double amount) throws SQLException {
+	public double getSaldoByConto(Conto c) throws SQLException{
+		conn = DBConn.startConnection(conn, schema);
+		double saldo;
+		
+		String query = "SELECT SALDO FROM CONTO WHERE USERNAME = ?;";
+		PreparedStatement st1 = conn.prepareStatement(query);
+		st1.setString(1, c.getUsername());
+		ResultSet result = st1.executeQuery();
+		if (result.next()) {
+			saldo = result.getDouble("SALDO");
+		}
+		else {
+			saldo = 0;
+		}
+		return saldo;
+	}
+	
+	public boolean preleva(Conto c, double amount) throws SQLException {
 		conn = DBConn.startConnection(conn, schema);
 		
 		String query = "UPDATE CONTO SET SALDO = SALDO - ? WHERE USERNAME = ?;";
 		PreparedStatement st1 = conn.prepareStatement(query);
 		st1.setDouble(1, amount);
-		st1.setString(2, u.getUsername());
+		st1.setString(2, c.getUsername());
+		st1.executeUpdate();
 		return true;
 	}
 	
-	public boolean deposita(Utente u, double amount) throws SQLException {
+	public boolean deposita(Conto c, double amount) throws SQLException {
 		conn = DBConn.startConnection(conn, schema);
 		
 		String query = "UPDATE CONTO SET SALDO = SALDO + ? WHERE USERNAME = ?;";
 		PreparedStatement st1 = conn.prepareStatement(query);
 		st1.setDouble(1, amount);
-		st1.setString(2, u.getUsername());
+		st1.setString(2, c.getUsername());
+		st1.executeUpdate();
 		return true;
 	}
 	

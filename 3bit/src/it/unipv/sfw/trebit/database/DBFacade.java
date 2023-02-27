@@ -37,12 +37,16 @@ public class DBFacade {
 		return contoDAO.getSaldoByUsername(u);
 	}
 	
-	public boolean preleva(Utente u, double amount) throws SQLException {
-		return contoDAO.preleva(u, amount);
+	public double getSaldoByConto(Conto c) throws SQLException{
+		return contoDAO.getSaldoByConto(c);
 	}
 	
-	public boolean deposita(Utente u, double amount) throws SQLException{
-		return contoDAO.deposita(u, amount);
+	public boolean preleva(Conto c, double amount) throws SQLException {
+		return contoDAO.preleva(c, amount);
+	}
+	
+	public boolean deposita(Conto c, double amount) throws SQLException{
+		return contoDAO.deposita(c, amount);
 	}
 	
 	public Conto getContoByUsername(Utente u) throws SQLException {

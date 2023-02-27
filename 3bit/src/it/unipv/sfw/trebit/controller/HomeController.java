@@ -42,17 +42,17 @@ public class HomeController {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				try {
-					
-					conto.deposita(Double.parseDouble(homeView.getAmountText()));
-					
-					homeView.setAmountText();
-					homeView.setSaldoText(Double.toString(conto.getSaldo()));
-					
-				} catch(NumberFormatException exception) {
-					homeView.popUp("ERRORE! Inserire un numero positivo e riprovare");
-				}
-				
+					try {
+						facade.deposita(conto, Double.parseDouble(homeView.getAmountText()));
+						homeView.setSaldoText(Double.toString(facade.getSaldoByConto(conto)));
+					} catch(NumberFormatException exception) {
+						homeView.popUp("ERRORE! Inserire un numero positivo e riprovare");
+					} 
+					catch (SQLException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+		
 			}
 			
 		});
@@ -64,13 +64,15 @@ public class HomeController {
 				
 				try {
 					
-					conto.preleva(Double.parseDouble(homeView.getAmountText()));
-					
-					homeView.setAmountText();
-					homeView.setSaldoText(Double.toString(conto.getSaldo()));
+					facade.preleva(conto, Double.parseDouble(homeView.getAmountText()));
+					homeView.setSaldoText(Double.toString(facade.getSaldoByConto(conto)));
 					
 				} catch(NumberFormatException exception) {
 					homeView.popUp("ERRORE! Inserire un numero positivo e riprovare");
+				} 
+				catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
 				}
 				
 			}
