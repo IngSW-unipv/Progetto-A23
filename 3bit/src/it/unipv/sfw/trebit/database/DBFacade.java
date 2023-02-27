@@ -4,6 +4,7 @@ import java.sql.SQLException;
 
 import it.unipv.sfw.trebit.database.DAO.ContoDAO;
 import it.unipv.sfw.trebit.database.DAO.UtenteDAO;
+import it.unipv.sfw.trebit.model.Conto;
 import it.unipv.sfw.trebit.model.account.Utente;
 
 
@@ -35,4 +36,22 @@ public class DBFacade {
 	public double getSaldoByUsername(Utente u) throws SQLException {
 		return contoDAO.getSaldoByUsername(u);
 	}
+	
+	public boolean preleva(Utente u, double amount) throws SQLException {
+		return contoDAO.preleva(u, amount);
+	}
+	
+	public boolean deposita(Utente u, double amount) throws SQLException{
+		return contoDAO.deposita(u, amount);
+	}
+	
+	public Conto getContoByUsername(Utente u) throws SQLException {
+		return contoDAO.getContoByUtente(u);
+	}
 }
+
+
+
+
+
+
