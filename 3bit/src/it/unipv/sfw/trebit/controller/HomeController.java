@@ -45,7 +45,6 @@ public class HomeController {
 				homeView.dispose();
 				
 				mv.getLoginView();
-				
 		
 			}
 			
