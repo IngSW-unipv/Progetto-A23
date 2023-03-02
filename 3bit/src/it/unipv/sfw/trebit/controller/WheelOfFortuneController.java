@@ -2,6 +2,7 @@ package it.unipv.sfw.trebit.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 import javax.swing.JFrame;
 
@@ -37,11 +38,11 @@ public class WheelOfFortuneController extends Controller{
 		
 	}
 	
-	public void initView() {
+	public void initView() throws SQLException {
 		
 		
 		//impostazioni all'apertura della view 
-		this.view.setSaldo2Text(Double.toString(conto.getSaldo()));
+		this.view.setSaldo2Text(Double.toString(facade.getSaldoByConto(conto)));
 		this.view.setBet2Text(Integer.toString(bet));
 		this.view.setLastWinText(Integer.toString(outcome));
 		
@@ -53,12 +54,12 @@ public class WheelOfFortuneController extends Controller{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				/*da modificare per problema di accoppiamento e coesione*/
-				HomeView h = new HomeView();
-				h.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				h.setSaldoText(Double.toString(conto.getSaldo()));
-				h.setVisible(true);
-				
+
+				view.dispose();
+
+				HomeController h = new HomeController(conto, mv.getHomeView());
+				//h.initView();
+
 			}
 			
 		});
@@ -111,14 +112,21 @@ public class WheelOfFortuneController extends Controller{
 					//result[0] è la vincita/perdita
 					outcome=result[0];
 				
-				
-					//metodi per modificare il conto con il risultato 
-					if(outcome>0)
-						conto.deposita((double)outcome);
-					else
-						conto.preleva((double)outcome*(-1));
-				
-				
+					try {
+
+						//metodi per modificare il conto con il risultato 
+						if(outcome>0)
+							facade.deposita(conto, outcome);
+
+						else
+							facade.preleva(conto, outcome*(-1));
+
+					}  catch (SQLException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					
+					
 					//imposta la gif (simulazione) del risultato
 					//result[1] è il valore int che rappresenta la gif da scegliere
 					view.setWheel(result[1]);
@@ -127,7 +135,14 @@ public class WheelOfFortuneController extends Controller{
 					view.setLastWinText(Integer.toString(outcome));
 				
 					//imposta il saldo modificato
-					view.setSaldo2Text(Double.toString(conto.getSaldo()));
+					try {
+						
+						view.setSaldo2Text(Double.toString(facade.getSaldoByConto(conto)));
+					
+					} catch (SQLException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 				
 					//imposta la puntata a zero
 					bet=0;
@@ -142,16 +157,22 @@ public class WheelOfFortuneController extends Controller{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				//aumenta la puntata solo se il saldo è maggiore della puntata
-				if(conto.getSaldo() > w.getBet()) {
+				try {
 					
-					//aggiunge un valore alla puntata
-					bet=w.addCoin();
-				
-					//imposta la puntata modificata
-					view.setBet2Text(Integer.toString(bet));
+					//aumenta la puntata solo se il saldo è maggiore della puntata
+					if(facade.getSaldoByConto(conto) > w.getBet()) {
+						
+						//aggiunge un valore alla puntata
+						bet=w.addCoin();
+					
+						//imposta la puntata modificata
+						view.setBet2Text(Integer.toString(bet));
+					}
+					
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
 				}
-				
 				
 			}
 			

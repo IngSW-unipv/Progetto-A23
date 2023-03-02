@@ -18,7 +18,6 @@ import javax.swing.JOptionPane;
 public class LoginController extends Controller{
 	
 	private final LoginView l;
-	private DBFacade facade = DBFacade.getInstance();
 	
 	private Conto c;
 	

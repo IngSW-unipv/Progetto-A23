@@ -17,7 +17,6 @@ public class HomeController extends Controller{
 	
 	private Conto conto;
 	private final HomeView homeView;
-	private DBFacade facade = DBFacade.getInstance();
 	
 	public HomeController(Conto conto, HomeView homeView) {
 		

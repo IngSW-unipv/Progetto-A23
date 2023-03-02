@@ -3,6 +3,7 @@ package it.unipv.sfw.trebit.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 import javax.swing.JFrame;
 
@@ -16,7 +17,7 @@ public class SlotMachineController extends Controller{
 	
 	private final Conto conto;
 	private final SlotMachineView view;
-	private SlotMachine s=new SlotMachine();
+	private SlotMachine s = new SlotMachine();
 	private int outcome;
 	private int[] result;
 	private int bet;
@@ -41,10 +42,10 @@ public class SlotMachineController extends Controller{
 	
 	
 	
-	public void initView() {
+	public void initView() throws SQLException {
 		
 		//impostazioni all'apertura della view 
-		this.view.setSaldo2Text(Double.toString(conto.getSaldo()));
+		this.view.setSaldo2Text(Double.toString(facade.getSaldoByConto(conto)));
 		this.view.setBet2Text(Integer.toString(bet));
 		this.view.setLastWinText(Integer.toString(outcome));
 		
@@ -59,12 +60,12 @@ public class SlotMachineController extends Controller{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				/*da modificare per problema di accoppiamento e coesione*/
-				HomeView h = new HomeView();
-				h.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				h.setSaldoText(Double.toString(conto.getSaldo()));
-				h.setVisible(true);
-				
+
+				view.dispose();
+
+				HomeController h = new HomeController(conto, mv.getHomeView());
+				//h.initView();
+
 			}
 			
 		});
@@ -86,13 +87,21 @@ public class SlotMachineController extends Controller{
 				
 					//result[0] è la vincita/perdita
 					outcome=result[0];
-					System.out.println(outcome);
-				
-					//metodi per modificare il conto con il risultato 
-					if(outcome>0)
-						conto.deposita(outcome);
-					else
-						conto.preleva(outcome*(-1));
+					
+					try {
+
+						//metodi per modificare il conto con il risultato 
+						if(outcome>0)
+							facade.deposita(conto, outcome);
+
+						else
+							facade.preleva(conto, outcome*(-1));
+						
+					}  catch (SQLException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					
 				
 				
 					//imposta le immagini del risultato nei box 
@@ -103,7 +112,14 @@ public class SlotMachineController extends Controller{
 					view.setLastWinText(Integer.toString(outcome));
 				
 					//imposta il saldo modificato
-					view.setSaldo2Text(Double.toString(conto.getSaldo()));
+					try {
+
+						view.setSaldo2Text(Double.toString(facade.getSaldoByConto(conto)));
+
+					} catch (SQLException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 				
 					//imposta la puntata a zero
 					bet=0;
@@ -120,15 +136,22 @@ public class SlotMachineController extends Controller{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-					
-				//aumenta la puntata solo se il saldo è maggiore della puntata
-				if(conto.getSaldo() > s.getBet()) {
-					
-					//aggiunge un valore alla puntata
-					bet=s.addCoin();
-				
-					//imposta la puntata modificata
-					view.setBet2Text(Integer.toString(bet));
+
+				try {
+
+					//aumenta la puntata solo se il saldo è maggiore della puntata
+					if(facade.getSaldoByConto(conto) > s.getBet()) {
+
+						//aggiunge un valore alla puntata
+						bet=s.addCoin();
+
+						//imposta la puntata modificata
+						view.setBet2Text(Integer.toString(bet));
+					}
+
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
 				}
 				
 			}
