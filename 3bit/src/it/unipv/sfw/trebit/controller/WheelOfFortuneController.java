@@ -10,7 +10,7 @@ import it.unipv.sfw.trebit.view.HomeView;
 import it.unipv.sfw.trebit.view.WheelOfFortuneView;
 import it.unipv.sfw.trebit.model.game.games.WheelOfFortune;
 
-public class WheelOfFortuneController {
+public class WheelOfFortuneController extends Controller{
 	
 	private Conto conto;
 	private WheelOfFortuneView view;

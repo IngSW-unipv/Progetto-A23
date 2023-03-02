@@ -15,11 +15,10 @@ import java.sql.SQLException;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-public class LoginController {
+public class LoginController extends Controller{
 	
 	private final LoginView l;
 	private DBFacade facade = DBFacade.getInstance();
-	private MasterView mv = MasterView.getInstance();
 	
 	private Conto c;
 	

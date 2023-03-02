@@ -12,11 +12,10 @@ import it.unipv.sfw.trebit.model.account.Utente;
 import it.unipv.sfw.trebit.view.*;
 import it.unipv.sfw.trebit.view.masterView.MasterView;
 
-public class RegistrationController {
+public class RegistrationController extends Controller{
 	
 	private final RegistrationView r;
 	private DBFacade facade = DBFacade.getInstance();
-	private MasterView mv = MasterView.getInstance();
 	
 	private Conto c;
 	

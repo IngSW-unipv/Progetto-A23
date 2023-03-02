@@ -12,7 +12,7 @@ import it.unipv.sfw.trebit.view.SlotMachineView;
 import it.unipv.sfw.trebit.model.game.games.SlotMachine;
 
 
-public class SlotMachineController {
+public class SlotMachineController extends Controller{
 	
 	private final Conto conto;
 	private final SlotMachineView view;

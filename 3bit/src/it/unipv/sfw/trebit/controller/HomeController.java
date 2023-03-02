@@ -13,11 +13,10 @@ import it.unipv.sfw.trebit.model.account.Utente;
 import it.unipv.sfw.trebit.view.HomeView;
 import it.unipv.sfw.trebit.view.masterView.*;
 
-public class HomeController {
+public class HomeController extends Controller{
 	
 	private Conto conto;
 	private final HomeView homeView;
-	private MasterView mv = MasterView.getInstance();
 	private DBFacade facade = DBFacade.getInstance();
 	
 	public HomeController(Conto conto, HomeView homeView) {

@@ -28,6 +28,8 @@ public class ContoDAO {
 		else {
 			saldo = 0;
 		}
+		
+		conn.close();
 		return saldo;
 	}
 	
@@ -45,6 +47,7 @@ public class ContoDAO {
 		else {
 			saldo = 0;
 		}
+		conn.close();
 		return saldo;
 	}
 	
@@ -65,6 +68,8 @@ public class ContoDAO {
 		st1.setString(2, c.getUsername());
 		st1.executeUpdate();
 		v = true;
+		
+		conn.close();
 		return v;
 	}
 	
@@ -85,6 +90,8 @@ public class ContoDAO {
 		st1.executeUpdate();
 		
 		v = true;
+		
+		conn.close();
 		return v;
 	}
 	
@@ -102,6 +109,8 @@ public class ContoDAO {
 		else {
 			c = new Conto("Missing", 0);
 		}
+		
+		conn.close();
 		return c;
 	}
 	
