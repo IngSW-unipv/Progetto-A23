@@ -4,31 +4,31 @@ import it.unipv.sfw.trebit.model.game.multiplier.MultiplierContext;
 
 public class WheelOfFortune implements IGames{
 	
-	private int numCasual;
-	private double[] result;
-	private double coin;
-	private double win;
-	private double multiplier;
+	private double numCasual;
+	private int[] result;
+	private int coin;
+	private int win;
+	private int multiplier;
 	private MultiplierContext m=MultiplierContext.getInstance();
 	
 	public WheelOfFortune() {
 		coin=0;
-		result=new double[4];
+		result=new int[4];
 	}
 	
 	
-	public double[] turn(int chosenSymbol) {
+	public int[] turn(int chosenSymbol) {
 		
 		//chiamata al metodo che restituisce il moltiplicatore
 				
-		multiplier=m.getMultiplier();
+		multiplier=(int) m.getMultiplier();
 		
 		//generazione casuale dello spostamento (rispetto al punto iniziale)
-		numCasual=(int) Math.random()*11;				//*11 simboli nella sequenza --> <0.0;1.0> * 11 genera lo spostamento
-		result[1]=(double) numCasual;
+		numCasual=Math.random()*11;				//*11 simboli nella sequenza --> <0.0;1.0> * 11 genera lo spostamento
+		result[1]=(int) numCasual;
 		
 		//victoryCase è il metodo del caso di vittoria (restituisce 0 se si perde)
-		win=victoryCase(numCasual, chosenSymbol);
+		win=victoryCase(result[1], chosenSymbol);
 		
 		//formula calcolo vincita/perdita
 		result[0]=win*multiplier*coin-coin;
@@ -65,7 +65,7 @@ public class WheelOfFortune implements IGames{
 	}
 	
 	
-	public double subCoin() {
+	public int subCoin() {
 		
 		//se la puntata è maggiore di zero si può abbassare di un valore
 		if(coin>0)
@@ -74,7 +74,7 @@ public class WheelOfFortune implements IGames{
 		return coin;
 	}
 	
-	public double addCoin() {
+	public int addCoin() {
 		
 		//aumenta di un valore la puntata
 		coin++;
@@ -83,7 +83,7 @@ public class WheelOfFortune implements IGames{
 		
 	}
 	
-	public double getBet() {
+	public int getBet() {
 		return coin;
 	}
 }

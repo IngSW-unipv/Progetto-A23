@@ -160,11 +160,11 @@ public class SlotMachineView extends JFrame {
 		return spin;
 	}
 	
-	public void setBoxes(double[] iconChose) {
+	public void setBoxes(int[] iconChose) {
 		//iconChose[1,2,3] sono i valori int dellimmagine da scegliere per ogni box 
 		//le immagini sono salvate in ordine numerico (il valore int rappresenta proprio quale immagine dell'ordine si prende)
-		box1.setIcon(image[(int) iconChose[1]]);
-		box2.setIcon(image[(int) iconChose[2]]);
-		box3.setIcon(image[(int) iconChose[3]]);
+		box1.setIcon(image[iconChose[1]]);
+		box2.setIcon(image[iconChose[2]]);
+		box3.setIcon(image[iconChose[3]]);
 	}
 }

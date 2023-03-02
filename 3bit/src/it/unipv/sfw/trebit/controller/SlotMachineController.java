@@ -17,9 +17,9 @@ public class SlotMachineController {
 	private final Conto conto;
 	private final SlotMachineView view;
 	private SlotMachine s=new SlotMachine();
-	private double outcome;
-	private double[] result;
-	private double bet;
+	private int outcome;
+	private int[] result;
+	private int bet;
 	
 	
 	public SlotMachineController(Conto conto, SlotMachineView view) {
@@ -27,7 +27,7 @@ public class SlotMachineController {
 		this.conto = conto;
 		this.view = view;
 		
-		result=new double[4];
+		result=new int[4];
 		
 		//all'inizio sono nulli bet e outcome
 		bet=0;
@@ -45,8 +45,8 @@ public class SlotMachineController {
 		
 		//impostazioni all'apertura della view 
 		this.view.setSaldo2Text(Double.toString(conto.getSaldo()));
-		this.view.setBet2Text(Double.toString(bet));
-		this.view.setLastWinText(Double.toString(outcome));
+		this.view.setBet2Text(Integer.toString(bet));
+		this.view.setLastWinText(Integer.toString(outcome));
 		
 	}
 
@@ -86,6 +86,7 @@ public class SlotMachineController {
 				
 					//result[0] è la vincita/perdita
 					outcome=result[0];
+					System.out.println(outcome);
 				
 					//metodi per modificare il conto con il risultato 
 					if(outcome>0)
@@ -99,14 +100,14 @@ public class SlotMachineController {
 					view.setBoxes(result);
 					
 					//imposta l'ultima vincita/perdita
-					view.setLastWinText(Double.toString(outcome));
+					view.setLastWinText(Integer.toString(outcome));
 				
 					//imposta il saldo modificato
 					view.setSaldo2Text(Double.toString(conto.getSaldo()));
 				
 					//imposta la puntata a zero
 					bet=0;
-					view.setBet2Text(Double.toString(bet));
+					view.setBet2Text(Integer.toString(bet));
 				
 				}
 			}
@@ -127,7 +128,7 @@ public class SlotMachineController {
 					bet=s.addCoin();
 				
 					//imposta la puntata modificata
-					view.setBet2Text(Double.toString(bet));
+					view.setBet2Text(Integer.toString(bet));
 				}
 				
 			}
@@ -143,7 +144,7 @@ public class SlotMachineController {
 				bet=s.subCoin();
 				
 				//imposta la puntata modificata
-				view.setBet2Text(Double.toString(bet));
+				view.setBet2Text(Integer.toString(bet));
 				
 				
 			}

@@ -1,3 +1,3 @@
-multiplier.strategy.class.name=it.unipv.sfw.trebit.game.multiplier.XmasStrategy
-#multiplier.strategy.class.name=it.unipv.sfw.trebit.game.multiplier.NewYearStrategy
+#multiplier.strategy.class.name=it.unipv.sfw.trebit.game.multiplier.XmasStrategy
+multiplier.strategy.class.name=it.unipv.sfw.trebit.game.multiplier.NewYearStrategy
 #multiplier.strategy.class.name=it.unipv.sfw.trebit.game.multiplier.EasterStrategy

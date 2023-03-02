@@ -16,9 +16,9 @@ public class WheelOfFortuneController {
 	private WheelOfFortuneView view;
 	private WheelOfFortune w=new WheelOfFortune();;
 	private int symbol;
-	double[] result= {};
-	private double outcome;
-	private double bet;
+	int[] result;
+	private int outcome;
+	private int bet;
 
 	
 	public WheelOfFortuneController(Conto conto, WheelOfFortuneView view) {
@@ -26,7 +26,7 @@ public class WheelOfFortuneController {
 		this.conto = conto;
 		this.view = view;
 		
-		result=new double[4];
+		result=new int[4];
 		
 		//all'inizio sono nulli bet, outcome e symbol
 		bet=0;
@@ -42,8 +42,8 @@ public class WheelOfFortuneController {
 		
 		//impostazioni all'apertura della view 
 		this.view.setSaldo2Text(Double.toString(conto.getSaldo()));
-		this.view.setBet2Text(Double.toString(bet));
-		this.view.setLastWinText(Double.toString(outcome));
+		this.view.setBet2Text(Integer.toString(bet));
+		this.view.setLastWinText(Integer.toString(outcome));
 		
 	}
 		
@@ -114,24 +114,24 @@ public class WheelOfFortuneController {
 				
 					//metodi per modificare il conto con il risultato 
 					if(outcome>0)
-						conto.deposita(outcome);
+						conto.deposita((double)outcome);
 					else
-						conto.preleva(outcome*(-1));
+						conto.preleva((double)outcome*(-1));
 				
 				
 					//imposta la gif (simulazione) del risultato
 					//result[1] è il valore int che rappresenta la gif da scegliere
-					view.setWheel((int) result[1]);
+					view.setWheel(result[1]);
 					
 					//imposta l'ultima vincita/perdita
-					view.setLastWinText(Double.toString(outcome));
+					view.setLastWinText(Integer.toString(outcome));
 				
 					//imposta il saldo modificato
 					view.setSaldo2Text(Double.toString(conto.getSaldo()));
 				
 					//imposta la puntata a zero
 					bet=0;
-					view.setBet2Text(Double.toString(bet));
+					view.setBet2Text(Integer.toString(bet));
 				}
 			}
 			
@@ -149,7 +149,7 @@ public class WheelOfFortuneController {
 					bet=w.addCoin();
 				
 					//imposta la puntata modificata
-					view.setBet2Text(Double.toString(bet));
+					view.setBet2Text(Integer.toString(bet));
 				}
 				
 				
@@ -163,7 +163,7 @@ public class WheelOfFortuneController {
 			public void actionPerformed(ActionEvent e) {
 				//toglie un valore alla puntata
 				bet=w.subCoin();
-				view.setBet2Text(Double.toString(bet));
+				view.setBet2Text(Integer.toString(bet));
 				
 				
 			}

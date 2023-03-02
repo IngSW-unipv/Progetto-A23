@@ -19,9 +19,6 @@ public class WheelOfFortuneView extends JFrame {
 	private JButton img2;
 	private JButton img3;
 	private JButton backHome;
-	//private Icon gif1;
-	//private Icon gif2;
-	//private Icon gif3;
 	
 	private Icon gif1 = new ImageIcon(getClass().getResource("wheelGif1.gif"));
 	private Icon gif2 = new ImageIcon(getClass().getResource("wheelGif2.gif"));

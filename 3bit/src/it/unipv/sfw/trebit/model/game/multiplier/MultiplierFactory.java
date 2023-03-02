@@ -5,6 +5,7 @@ import java.lang.reflect.Constructor;
 import java.util.Properties;
 
 
+
 public class MultiplierFactory {
 	
 	private IMultiplierStrategy multiplier;

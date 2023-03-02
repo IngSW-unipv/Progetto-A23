@@ -4,21 +4,21 @@ import it.unipv.sfw.trebit.model.game.multiplier.MultiplierContext;
 
 public class SlotMachine implements IGames {
 	
-	private int[] numCasual;
-	private double[] result= {};
+	private double[] numCasual;
+	private int[] result= {};
 	private double multiplier;
-	private double win;
-	private double coin;
+	private int win;
+	private int coin;
 	private MultiplierContext m=MultiplierContext.getInstance();
 	
 	public SlotMachine() {
-		result=new double[4];
-		numCasual=new int[3];
+		result=new int[4];
+		numCasual=new double[3];
 		
 		coin=0;
 	}
 	
-	public double[] turn(int uselessVariable) {
+	public int[] turn(int uselessVariable) {
 		
 		//chiamata al metodo che restituisce il moltiplicatore
 		multiplier=m.getMultiplier();
@@ -30,15 +30,15 @@ public class SlotMachine implements IGames {
 		
 		//generazione casuale spostamento di ogni colonna (tutti rispetto al punto iniziale)
 		for(int i=0;i<3;i++) {
-			numCasual[i]=(int) Math.random()*5;			//*5 simboli --> <0.0;1.0> * 5 genera lo spostamento
-			result[i+1]=(double) numCasual[i];
+			numCasual[i]= Math.random()*5;			//*5 simboli --> <0.0;1.0> * 5 genera lo spostamento
+			result[i+1]=(int)numCasual[i];
 		}
 		
 		//victoryCase è il metodo del caso di vittoria (restituisce 0 se si perde)
-		win=victoryCase(numCasual);
+		win=victoryCase(result);
 		
 		//formula calcolo vincita/perdita
-		result[0]=win*multiplier*coin-coin;
+		result[0]=win*(int)multiplier*coin-coin;
 		
 		//puntata che viene impostata a zero ogni volta che finisce un turno
 		coin=0;
@@ -53,14 +53,14 @@ public class SlotMachine implements IGames {
 	public int victoryCase(int[] num) {
 		
 		//se le tre immagini (i valori casuali generati) sono uguali si vince se no si perde
-		if(num[0]==num[1] && num[1]==num[2])
+		if(num[1]==num[2] && num[2]==num[3])
 			return 5;
 		else
 			return 0;
 	}
 	
 
-	public double subCoin() {
+	public int subCoin() {
 		
 		//se la puntata è maggiore di zero si può abbassare di un valore
 		if(coin>0)
@@ -69,7 +69,7 @@ public class SlotMachine implements IGames {
 		return coin;
 	}
 	
-	public double addCoin() {
+	public int addCoin() {
 		//aumenta di un valore la puntata
 		coin++;
 		
