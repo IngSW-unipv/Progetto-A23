@@ -27,9 +27,9 @@ public class HomeController extends Controller{
 		
 	}
 	
-	public void initView(Utente u) throws SQLException {
+	public void initView(Conto c) throws SQLException {
 
-		this.homeView.setSaldoText(Double.toString(facade.getSaldoByUsername(u)));
+		this.homeView.setSaldoText(Double.toString(facade.getSaldoByConto(c)));
 
 	}
 		

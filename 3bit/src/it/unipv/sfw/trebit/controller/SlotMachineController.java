@@ -64,7 +64,12 @@ public class SlotMachineController extends Controller{
 				view.dispose();
 
 				HomeController h = new HomeController(conto, mv.getHomeView());
-				//h.initView();
+				try {
+					h.initView(conto);
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 
 			}
 			

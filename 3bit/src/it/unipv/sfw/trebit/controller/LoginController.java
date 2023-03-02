@@ -45,7 +45,7 @@ public class LoginController extends Controller{
 						l.dispose();
 						Conto c = facade.getContoByUsername(u);
 						HomeController hc = new HomeController(c, mv.getHomeView());
-						hc.initView(u);
+						hc.initView(c);
 						l.setStringUsername();
 						l.setStringPassword();
 					}
