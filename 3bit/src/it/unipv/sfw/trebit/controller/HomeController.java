@@ -37,6 +37,20 @@ public class HomeController {
 		
 	public void setListeners() {
 		
+		homeView.getButtonLogout().addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				homeView.dispose();
+				
+				mv.getLoginView();
+				
+		
+			}
+			
+		});
+		
 		homeView.getButtonDeposita().addActionListener(new ActionListener() {
 
 			@Override

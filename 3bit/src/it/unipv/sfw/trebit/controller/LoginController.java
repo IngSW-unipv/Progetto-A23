@@ -48,6 +48,8 @@ public class LoginController {
 						Conto c = facade.getContoByUsername(u);
 						HomeController hc = new HomeController(c, mv.getHomeView());
 						hc.initView(u);
+						l.setStringUsername();
+						l.setStringPassword();
 					}
 					
 				} catch (HeadlessException | SQLException e1) {

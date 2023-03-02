@@ -8,6 +8,7 @@ public class HomeView extends JFrame {
 
 	private JLabel label;
 	private JLabel saldo;
+	private JButton logout;
 	private JLabel importo;
 	private JTextField amount;
 	private JButton deposita;
@@ -36,6 +37,10 @@ public class HomeView extends JFrame {
 		
 		JPanel eastPanel = new JPanel();
 		add(eastPanel, BorderLayout.EAST);
+		
+		logout = new JButton("Logout");
+		logout.setActionCommand("Logout");
+		eastPanel.add(logout);
 		
 		saldo = new JLabel("il tuo saldo: €");
 		eastPanel.add(saldo);
@@ -86,6 +91,10 @@ public class HomeView extends JFrame {
 	
 	public void setSaldoText(String text) {
 		saldo.setText("il tuo saldo: € " + text);
+	}
+	
+	public JButton getButtonLogout() {
+		return logout;
 	}
 	
 	public String getAmountText() {

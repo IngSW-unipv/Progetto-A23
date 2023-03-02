@@ -75,8 +75,16 @@ public class LoginView extends JFrame {
 		return signUp;
 	}
 	
+	public void setStringUsername() {
+		username.setText(null);
+	}
+	
 	public String getStringUsername() {
 		return username.getText();
+	}
+	
+	public void setStringPassword() {
+		password.setText(null);
 	}
 	
 	@SuppressWarnings("deprecation")
