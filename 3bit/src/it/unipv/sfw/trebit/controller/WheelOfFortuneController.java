@@ -4,10 +4,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 
-import javax.swing.JFrame;
+//import javax.swing.JFrame;
 
 import it.unipv.sfw.trebit.model.Conto;
-import it.unipv.sfw.trebit.view.HomeView;
+//import it.unipv.sfw.trebit.view.HomeView;
 import it.unipv.sfw.trebit.view.WheelOfFortuneView;
 import it.unipv.sfw.trebit.model.game.games.WheelOfFortune;
 
