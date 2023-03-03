@@ -173,6 +173,9 @@ public class WheelOfFortuneController extends Controller{
 						//imposta la puntata modificata
 						view.setBet2Text(Integer.toString(bet));
 					}
+					else
+						view.popUp("Non si può aumentare la puntata perchè il saldo non è sufficente");
+
 					
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block

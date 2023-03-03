@@ -167,4 +167,8 @@ public class SlotMachineView extends JFrame {
 		box2.setIcon(image[iconChose[2]]);
 		box3.setIcon(image[iconChose[3]]);
 	}
+	
+	public void popUp(String message) {
+		JOptionPane.showMessageDialog(this, message);
+	}
 }

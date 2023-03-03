@@ -171,5 +171,9 @@ public class WheelOfFortuneView extends JFrame {
 	public void setLastWinText(String text) {
 		lastWin.setText("Last Win: " + text);
 	}
+	
+	public void popUp(String message) {
+		JOptionPane.showMessageDialog(this, message);
+	}
 
 }
